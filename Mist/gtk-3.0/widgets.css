@@ -50,7 +50,7 @@ treeview.view:focus *
 *:disabled
 {
     background-color: shade(@bg_color, 0.95);
-    border-color: @insensitive_border_color;
+    border-color: @disabled_border_color;
     color: mix(@fg_color, @base_color, 0.5);
 }
 
@@ -368,7 +368,7 @@ button:active:hover
 button:disabled
 {
     background-color: shade(@bg_color, 0.95);
-    border-color: @insensitive_border_color;
+    border-color: @disabled_border_color;
     color: mix(@fg_color, @base_color, 0.5);
 }
 

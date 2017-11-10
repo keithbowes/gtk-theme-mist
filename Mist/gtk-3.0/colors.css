@@ -9,7 +9,7 @@
 
 @define-color border_color #a4a4a4;
 @define-color border_color1 #939393;
-@define-color insensitive_border_color #9c9c9c;
+@define-color disabled_border_color #9c9c9c;
 
 @define-color info_fg_color rgb (181, 171, 156);
 @define-color info_bg_color rgb (252, 252, 189);
