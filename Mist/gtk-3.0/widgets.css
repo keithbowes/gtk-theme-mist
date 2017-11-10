@@ -1,34 +1,6 @@
 /**********************************************/
 *
 {
-    /*-GtkWidget-focus-line-pattern: "\0"; use CSS outline-style*/
-
-    /* START: Deprecated in GTK 3.20 */
-
-    /* Couldn't figure out how to pass CSS Basics, Multiple Backgrounds,
-     * Animated Backgrounds, or Shadows, but Adwaita can't either */
-    /*-GtkMenuItem-arrow-scaling: 0.7;*/
-
-    /*-GtkButton-child-displacement-x: 0; default*/
-    /*-GtkButton-child-displacement-y: 0; default*/
-    /*-GtkButton-default-border: 0; use CSS margins and padding*/
-
-    /*-GtkScrolledWindow-scrollbar-spacing: 3; default*/
-    /*-GtkRange-stepper-spacing: -1; should be >=0*/
-
-    /*-GtkNotebook-initial-gap: 0; default*/
-    /*-GtkNotebook-tab-curvature: 0;*/
-    /*-GtkNotebook-tab-overlap: 2; default*/
-
-    /*-GtkPaned-handle-size: 5; default*/
-
-    /*-GtkRange-trough-border: 0;*/
-    /*-GtkCheckButton-indicator-size: 12;*/
-
-    /*-GtkCheckMenuItem-indicator-size: 12;*/
-    /*-GtkCellRendererToggle-indicator-size: 12;*/
-    /* END: Deprecated in GTK 3.20 */
-
     -GtkToolItemGroup-expander-size: 9;
     -GtkExpander-expander-size: 9;
     -GtkTreeView-expander-size: 9;
@@ -459,6 +431,7 @@ radio:selected,
 radio:selected:focus
 {
     background-color: @base_color;
+    border: 1px solid @border_color;
     color: @selected_bg_color;
 }
 
@@ -467,6 +440,7 @@ check:selected,
 check:selected:focus
 {
     background-color: @base_color;
+    border: 1px solid @border_color;
     color: shade(@selected_bg_color, 0.9);
 }
 
