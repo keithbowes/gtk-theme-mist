@@ -211,6 +211,16 @@ scale > contents > trough
     border-bottom-color: @base_color;
 }
 
+scale.horizontal > contents > trough
+{
+    padding: 0 7px;
+}
+
+scale.vertical > contents > trough
+{
+    padding: 7px 0;
+}
+
 scale > contents > trough > slider
 {
     background-color: @bg_color;
