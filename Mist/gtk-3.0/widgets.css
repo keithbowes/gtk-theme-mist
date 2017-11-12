@@ -437,6 +437,7 @@ checkbutton:disabled
 }
 
 radio,
+radio:checked,
 radio:selected,
 radio:selected:focus
 {
@@ -446,6 +447,7 @@ radio:selected:focus
 }
 
 check,
+check:checked,
 check:selected,
 check:selected:focus
 {
