@@ -443,6 +443,7 @@ radio:selected:focus
 {
     background-color: @base_color;
     border: 1px solid @border_color;
+    border-radius: 8px;
     color: @selected_bg_color;
 }
 
