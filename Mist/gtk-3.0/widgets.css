@@ -330,16 +330,6 @@ button:not(.toggle).suggested-action:focus
     color: @question_fg_color;
 }
 
-button.toggle
-{
-    border: 2px @border_color outset;
-}
-
-button.toggle:checked
-{
-    border-style: inset;
-}
-
 text-button
 {
     border-width: 1px;
@@ -370,6 +360,32 @@ button:disabled
     background-color: shade(@bg_color, 0.95);
     border-color: @disabled_border_color;
     color: mix(@fg_color, @base_color, 0.5);
+}
+
+button:focus,
+check:focus,
+check:checked:focus,
+radio:focus,
+radio:checked:focus
+{
+    border-color: #373737;
+    border-style: dotted;
+}
+
+button.toggle
+{
+    border-style: outset;
+    border-width: 2px;
+}
+
+button.toggle:checked
+{
+    border-style: inset;
+}
+
+button.toggle:not(:focus)
+{
+    border-color: @border_color;
 }
 
 spinbutton,
