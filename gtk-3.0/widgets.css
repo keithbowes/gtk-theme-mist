@@ -345,10 +345,10 @@ button:hover
 button:active
 {
     background-color: shade(@bg_color, 0.9);
-    border-right-color: #f3f1ef;
-    border-bottom-color: #f3f1ef;
-    border-left-color: #8c8477;
-    border-top-color: #8c8477;
+    border-bottom-color: @button_active_bottom_right_border_color;
+    border-left-color: @button_active_top_left_border_color;
+    border-right-color: @button_active_bottom_right_border_color;
+    border-top-color: @button_active_top_left_border_color;
 }
 
 button:active:hover
@@ -369,7 +369,7 @@ check:checked:focus,
 radio:focus,
 radio:checked:focus
 {
-    border-color: #373737;
+    border-color: @button_focused_border_color;
     border-style: dotted;
 }
 
