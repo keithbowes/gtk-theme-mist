@@ -28,25 +28,18 @@ Install
 
 For GTK 2.x::
 
-    ~/.themes
-    ~/.themes/Mist
-    ~/.themes/Mist/gtk-2.0
-    ~/.themes/Mist/gtk-2.0/gtkrc
+    $ cd
+    $ install -d .themes
+    $ cd .themes
+    $ git clone https://gitlab.com/keithbowes/gtk-theme-mist Mist
 
-    $ cat ~/.gtkrc-2.0
-    gtk-theme-name="Mist"
-    ...
+    $ echo gtk-theme-name="Mist" >> ~/.gtkrc-2.0
 
 For GTK 3.x::
 
-    ~/.local/share/themes
-    ~/.local/share/themes/Mist
-    ~/.local/share/themes/Mist/gtk-3.0
-    ~/.local/share/themes/Mist/gtk-3.0/widgets.css
-    ~/.local/share/themes/Mist/gtk-3.0/colors.css
-    ~/.local/shares/themes/Mist/gtk-3.0/gtk.css
+    $ cd
+    $ install -d .local/share/themes
+    $ cd .local/share/themes
+    $ git clone https://gitlab.com/keithbowes/gtk-theme-mist Mist
 
-    $ cat ~/.config/gtk-3.0/settings.ini
-    [Settings]
-    gtk-theme-name=Mist
-    ...
+    $ echo gtk-theme-name=Mist >> ~/.config/gtk-3.0/settings.ini
