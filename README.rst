@@ -22,41 +22,29 @@ gtk-3.0
   http://gnome-look.org/content/show.php?content=155580
 * work in progress (goal is to match gtk2 version as closely as possible)
 
-Known Issues (as of 03.01.2015 with gtk 3.14.6):
-
-* focus hint
-* text on progress bar
-* visited links are white
-* ComboBoxes: color under cursor should be white
-* CheckBoxes, ComboBoxes: tick disappears
-* Buttons: down state
-* Buttons in dialogs
-* FileChooser
-* Tooltips
-* Notebook, indent inactive tabs
-
 
 Install
 -------
 
-Install like this::
+For GTK 2.x::
 
     ~/.themes
     ~/.themes/Mist
-    ~/.themes/Mist/gtk-3.0
-    ~/.themes/Mist/gtk-3.0/widgets.css
-    ~/.themes/Mist/gtk-3.0/colors.css
-    ~/.themes/Mist/gtk-3.0/gtk.css
     ~/.themes/Mist/gtk-2.0
     ~/.themes/Mist/gtk-2.0/gtkrc
-
-For GTK 2.x::
 
     $ cat ~/.gtkrc-2.0
     gtk-theme-name="Mist"
     ...
 
 For GTK 3.x::
+
+    ~/.local/share/themes
+    ~/.local/share/themes/Mist
+    ~/.local/share/themes/Mist/gtk-3.0
+    ~/.local/share/themes/Mist/gtk-3.0/widgets.css
+    ~/.local/share/themes/Mist/gtk-3.0/colors.css
+    ~/.local/shares/themes/Mist/gtk-3.0/gtk.css
 
     $ cat ~/.config/gtk-3.0/settings.ini
     [Settings]
