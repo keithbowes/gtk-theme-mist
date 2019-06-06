@@ -765,6 +765,20 @@ popover > :first-child
 {
     border-width: 1px;
 }
+
+/* Visually differentiating the text color of hovered and focused items
+ * to draw attention to that it's the focused item that's activated on Return.
+*/
+popover.menu :focus :not(check):not(radio),
+popover.menu :hover :not(check):not(label):not(radio),
+/* Hack for apps using GtkPopover instead of GtkPopoverMenu
+ * to target GTK+ 3 < 3.16. Hopefully, it can be removed soon. */
+popover:not(.menu) modelbutton:focus :not(check):not(radio),
+popover:not(.menu) modelbutton:hover
+{
+    background-color: @selected_bg_color;
+    color: @seleceted_fg_color;
+}
 /**********************************************/
 
 
