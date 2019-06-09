@@ -37,3 +37,4 @@ For GTK 3.x:
     $ git clone https://gitlab.com/keithbowes/gtk-theme-mist Mist
 
     $ echo gtk-theme-name=Mist >> ~/.config/gtk-3.0/settings.ini
+    $ gsettings set org.gnome.desktop.interface gtk-theme "'Mist'"
