@@ -18,6 +18,26 @@ License    |GNU GPLv2 or later
     (gtk3.8-theme\_Mist-Redmond)](http://gnome-look.org/content/show.php?content=155580)
   - work in progress (goal is to match gtk2 version as closely as possible)
 
+### Known issues
+
+  - No visual indication of the focused notebook tab
+  - dconf-editor: The property names are white and essentially unreadable
+
+#### Imported from upstream
+
+My comments are in parentheses
+
+  - focus hint (I have no idea what that means)
+  - text on progress bar (test case?)
+  - ~~visited links are white~~ (fixed)
+  - ComboBoxes: color under cursor should be white
+  - CheckBoxes, ComboBoxes: tick disappears (works for me)
+  - ~~Buttons: down state~~ (fixed)
+  - Buttons in dialogs (what about them?)
+  - FileChooser (what about it?)
+  - Tooltips (what about them?)
+  - Notebook, indent inactive tabs (does that mean that inactive tabs are indented or that they should be?)
+
 ## Install
 
 For GTK 2.x:
