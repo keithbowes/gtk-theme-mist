@@ -337,8 +337,6 @@ radio:focus + label,
 radio:checked:focus + label
 {
     border-color: @button_focused_border_color;
-    border-style: solid;
-    border-width: 1px;
 }
 
 button.toggle
@@ -466,6 +464,14 @@ check:disabled:selected
 {
     background-color: shade(@base_color, 0.95);
     color: mix(@fg_color, @base_color, 0.5);
+}
+
+check + label,
+radio + label
+{
+    border-color: transparent;
+    border-style: solid;
+    border-width: 1px;
 }
 
 check row,
