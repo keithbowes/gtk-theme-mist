@@ -330,13 +330,14 @@ button:disabled
 }
 
 button:focus,
-check:focus,
-check:checked:focus,
-radio:focus,
-radio:checked:focus
+check:focus + label,
+check:checked:focus + label,
+radio:focus + label,
+radio:checked:focus + label
 {
     border-color: @button_focused_border_color;
-    border-style: dotted;
+    border-style: solid;
+    border-width: 1px;
 }
 
 button.toggle
@@ -663,6 +664,7 @@ notebook > header > tabs > tab
 notebook > header > tabs > tab:checked
 {
     background-color: @bg_color;
+    border-color: @button_focused_border_color;
 }
 
 notebook > header.top > tabs > tab
