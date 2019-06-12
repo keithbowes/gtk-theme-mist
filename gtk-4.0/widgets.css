@@ -8,6 +8,7 @@
     border-width: 1px;
 }
 
+:selected,
 .view:selected,
 selection
 {
@@ -15,6 +16,7 @@ selection
     color: @fg_color;
 }
 
+:selected:focus,
 .view:selected:focus,
 selection:focus
 {
