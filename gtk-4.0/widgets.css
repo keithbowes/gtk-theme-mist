@@ -504,6 +504,11 @@ combobox button
 {
     padding: 0;
 }
+
+combobox window.popup :hover
+{
+    color: @selected_fg_color;
+}
 /**********************************************/
 
 
