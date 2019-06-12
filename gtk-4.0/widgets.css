@@ -29,7 +29,8 @@ selection:focus
 
 .view:focus,
 entry:focus,
-label:focus
+label:focus,
+text:focus
 {
     color: @fg_color;
 }
@@ -392,7 +393,8 @@ spinner:checked
 
 
 /**********************************************/
-entry
+entry,
+text
 {
     background-color: @base_color;
     padding: 2px 2px 3px 2px;
@@ -400,7 +402,8 @@ entry
     border-width: 1px;
 }
 
-entry:disabled
+entry:disabled,
+text.read-only
 {
     background-color: shade(@base_color, 0.95);
 }
@@ -408,6 +411,11 @@ entry:disabled
 entry progress
 {
     background-color: shade(@selected_bg_color, 1.35);
+}
+
+entry text
+{
+    border: none;
 }
 /**********************************************/
 
