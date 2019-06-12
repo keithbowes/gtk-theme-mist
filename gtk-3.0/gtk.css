@@ -1,2 +1,3 @@
-@import url("colors.css");
-@import url("widgets.css");
+@import url("../gtk-4.0/colors.css");
+@import url("../gtk-4.0/widgets.css");
+@import url("gtk3.css");

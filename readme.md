@@ -2,7 +2,7 @@
 
 :          |:
 :----------|:-------------------
-Description|Mist theme for gtk2/3
+Description|Mist theme for gtk2/3/4
 License    |GNU GPLv2 or later
 
 ## gtk-2.0
@@ -38,6 +38,10 @@ My comments are in parentheses
   - Tooltips (what about them?)
   - Notebook, indent inactive tabs (does that mean that inactive tabs are indented or that they should be?)
 
+## gtk-4.0
+
+  - shares as much code with gtk-3.0 as possible
+
 ## Install
 
 For GTK 2.x:
@@ -49,7 +53,7 @@ For GTK 2.x:
 
     $ echo gtk-theme-name="Mist" >> ~/.gtkrc-2.0
 
-For GTK 3.x:
+For GTK 3.x and 4.x:
 
     $ cd
     $ install -d .local/share/themes

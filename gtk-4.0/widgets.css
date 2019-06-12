@@ -1,10 +1,6 @@
 /**********************************************/
 *
 {
-    -GtkToolItemGroup-expander-size: 9;
-    -GtkExpander-expander-size: 9;
-    -GtkTreeView-expander-size: 9;
-
     padding: 0;
     color: @fg_color;
     border-color: @border_color;
@@ -151,37 +147,6 @@ trough > row:selected
 trough > row:selected:focus
 {
     border-color: @selected_fg_color;
-}
-
-
-scrollbar button,
-scrollbar button:hover,
-scrollbar button:active,
-scrollbar button:hover:active
-{
-    border-color: @border_color;
-    min-height: 10px;
-    min-width: 10px;
-}
-
-scrollbar.horizontal button.down
-{
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-}
-
-scrollbar.horizontal button.up
-{
-    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
-}
-
-scrollbar.vertical button.down
-{
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-}
-
-scrollbar.vertical button.up
-{
-    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
 
 scrollbar slider
@@ -774,8 +739,6 @@ popover > :first-child
 */
 popover.menu :focus :not(check):not(radio),
 popover.menu :hover :not(check):not(label):not(radio),
-/* Hack for apps using GtkPopover instead of GtkPopoverMenu
- * to target GTK+ 3 < 3.16. Hopefully, it can be removed soon. */
 popover:not(.menu) modelbutton:focus :not(check):not(radio),
 popover:not(.menu) modelbutton:hover
 {
