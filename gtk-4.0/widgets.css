@@ -589,6 +589,7 @@ menubar
 
 menu
 {
+    border-style: solid;
     border-width: 1px;
 }
 
@@ -599,60 +600,88 @@ menuitem
     padding: 3px 7px 2px 7px;
 }
 
-menuitem label
+menu > menuitem > arrow
+{
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+
+menu > menuitem > arrow:dir(rtl)
+{
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
+}
+
+menu > menuitem label
 {
     color: inherit;
 }
 
-menuitem:hover,
-menuitem *:not(check):not(radio):hover
+menu > menuitem:hover,
+menu > menuitem:hover arrow,
+menu > menuitem:hover label
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
 
-menuitem check,
-menuitem radio
+/* Don't highlight submenus of hovered items */
+menu > menuitem:hover menu label
 {
     background-color: transparent;
+    color: inherit;
+}
+
+menu > menuitem check,
+menu > menuitem radio
+{
+    background-color: @selected_fg_color;
     color: @selected_bg_color;
     margin-right: 5px;
     min-height: 10px;
     min-width: 10px;
 }
 
-menuitem check:hover,
-menuitem radio:hover
+menu > menuitem check,
+menu > menuitem check:checked,
+menu > menuitem check:checked:hover,
+menu > menuitem check:hover,
+menu > menuitem radio,
+menu > menuitem radio:checked,
+menu > menuitem radio:checked:hover,
+menu > menuitem radio:hover
+{
+    border: none;
+}
+
+menu > menuitem check:hover,
+menu > menuitem radio:hover
 {
     background-color: @bg_color;
 }
 
-menuitem check
+menu > menuitem check
 {
-    border-radius: 3px;
     color: shade(@selected_bg_color, 0.9);
     -gtk-icon-source: -gtk-icontheme("checkbox-symbolic");
 }
 
-menuitem check:checked
+menu > menuitem check:checked
 {
     -gtk-icon-source: -gtk-icontheme("checkbox-checked-symbolic");
 }
 
-menuitem check:disabled,
-menuitem radio:disabled
+menu > menuitem check:disabled,
+menu > menuitem radio:disabled
 {
     background-color: shade(@base_color, 0.95);
     color: mix(@fg_color, @base_color, 0.5);
 }
 
-menuitem radio
+menu > menuitem radio
 {
-    border-radius: 5px;
     -gtk-icon-source: -gtk-icontheme("radio-symbolic");
 }
 
-menuitem radio:checked
+menu > menuitem radio:checked
 {
     -gtk-icon-source: -gtk-icontheme("radio-checked-symbolic");
 }
