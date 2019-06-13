@@ -1,8 +1,32 @@
+/* GTK 3-specific stuff goes here.
+ * The idea is to rid the GTK 4 theme of as many legacy rules as possible.
+ * Also, overrides can go here, in case the GTK 4 styles don't work in GTK 3. */
+
+/* GTK3-specific stuff */
 *
 {
     -GtkToolItemGroup-expander-size: 9;
     -GtkExpander-expander-size: 9;
     -GtkTreeView-expander-size: 9;
+}
+
+check row,
+radio row
+{
+    background-color: @base_color;
+    border-width: 1px;
+}
+
+pane-separator
+{
+    background-color: @bg_color;
+    border-color: @black;
+    border-width: 2px;
+}
+
+pane-separator:hover
+{
+    background-color: shade(@base_color, 0.95);
 }
 
 scrollbar button,
@@ -34,3 +58,29 @@ scrollbar.vertical button.up
 {
     -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
+
+sidebar,
+sidebar.view
+{
+    background-color: shade(@bg_color, 1.05);
+}
+
+sidebar row:hover,
+sidebar.view row:hover
+{
+    background-color: @bg_color;
+}
+
+sidebar row:selected,
+sidebar row:selected:hover
+{
+    background-color: @selected_bg_color;
+}
+
+text-button
+{
+    border-width: 1px;
+    padding: 4px;
+}
+
+/* Overrides */

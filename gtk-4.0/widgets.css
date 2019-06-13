@@ -97,8 +97,8 @@ statusbar label
 /**********************************************/
 tooltip.background
 {
-    border: 1px solid @tooltip_border_color;
     background-color: @tooltip_bg_color;
+    border: 1px solid @tooltip_border_color;
     color: @tooltip_fg_color;
 }
 /**********************************************/
@@ -262,20 +262,6 @@ separator
 
 
 /**********************************************/
-pane-separator
-{
-    border-width: 2px;
-    background-color: @bg_color;
-}
-
-pane-separator:hover
-{
-    background-color: shade(@base_color, 0.95);
-}
-/**********************************************/
-
-
-/**********************************************/
 button
 {
     background-color: @bg_color;
@@ -300,7 +286,7 @@ button:not(.toggle).suggested-action:focus
     color: @question_fg_color;
 }
 
-text-button
+button.text-button
 {
     border-width: 1px;
     padding: 4px;
@@ -473,13 +459,6 @@ radio + label
 {
     border-color: transparent;
     border-style: solid;
-    border-width: 1px;
-}
-
-check row,
-radio row
-{
-    background-color: @base_color;
     border-width: 1px;
 }
 /**********************************************/
@@ -742,20 +721,19 @@ notebook > header.right > tabs > tab
 }
 
 /**********************************************/
-sidebar,
-sidebar.view
+.sidebar,
+.sidebar.view
 {
     background-color: shade(@bg_color, 1.05);
 }
 
-sidebar row:hover,
-sidebar.view row:hover
+.sidebar :hover,
+.sidebar.view :hover
 {
     background-color: @bg_color;
 }
 
-sidebar row:selected,
-sidebar row:selected:hover
+.sidebar :active
 {
     background-color: @selected_bg_color;
 }
