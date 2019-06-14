@@ -595,6 +595,7 @@ menu > menuitem label
 }
 
 menu > menuitem:hover,
+menu > menuitem:hover accellabel accelerator,
 menu > menuitem:hover arrow,
 menu > menuitem:hover label
 {
@@ -603,6 +604,8 @@ menu > menuitem:hover label
 }
 
 /* Don't highlight submenus of hovered items */
+menu > menuitem:hover menu accellabel accelerator,
+menu > menuitem:hover menu arrow,
 menu > menuitem:hover menu label
 {
     background-color: transparent;
