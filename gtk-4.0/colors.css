@@ -1,11 +1,10 @@
 @define-color base_color #fff;
 @define-color bg_color #eaeaea;
 @define-color fg_color #000;
-@define-color text_color @fg_color;
 
 @define-color selected_bg_color #729fcf;
-@define-color selected_bg_color1 #5f8fc2;
 @define-color selected_fg_color @base_color;
+
 @define-color scrollbar_slider_color @bg_color;
 @define-color scrollbar_slider_hover_color shade(@scrollbar_slider_color, 1.02);
 @define-color tooltip_bg_color #f5f5b5;
@@ -27,3 +26,9 @@
 @define-color question_bg_color rgb(138, 173, 212);
 @define-color error_fg_color rgb(166, 38, 38);
 @define-color error_bg_color rgb(237, 54, 54);
+
+/* Theme colors */
+@define-color theme_base_color @base_color;
+@define-color theme_bg_color @bg_color;
+@define-color theme_fg_color @fg_color;
+@define-color theme_text_color @theme_fg_color;

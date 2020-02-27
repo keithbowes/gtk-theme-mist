@@ -21,7 +21,6 @@ License    |GNU GPLv2 or later
 ### Known issues
 
   - No visual indication of the focused notebook tab
-  - dconf-editor: The property names are white and essentially unreadable
 
 #### Imported from upstream
 
