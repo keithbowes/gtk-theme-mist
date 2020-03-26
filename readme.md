@@ -48,7 +48,7 @@ For GTK 2.x:
     $ cd
     $ install -d .themes
     $ cd .themes
-    $ git clone https://gitlab.com/keithbowes/gtk-theme-mist Mist
+    $ git clone https://github.com/keithbowes/gtk-theme-mist Mist
 
     $ echo gtk-theme-name="Mist" >> ~/.gtkrc-2.0
 
@@ -57,7 +57,7 @@ For GTK 3.x and 4.x:
     $ cd
     $ install -d .local/share/themes
     $ cd .local/share/themes
-    $ git clone https://gitlab.com/keithbowes/gtk-theme-mist Mist
+    $ git clone https://github.com/keithbowes/gtk-theme-mist Mist
 
     $ echo gtk-theme-name=Mist >> ~/.config/gtk-3.0/settings.ini
     $ gsettings set org.gnome.desktop.interface gtk-theme "'Mist'"
