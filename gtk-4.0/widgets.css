@@ -367,6 +367,11 @@ spinbutton button:focus
     }
 }
 
+spinner
+{
+    -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
+}
+
 spinner:checked
 {
     animation-name: spin;
