@@ -435,6 +435,12 @@ check:selected:focus
     color: shade(@selected_bg_color, 0.9);
 }
 
+check:checked,
+radio:checked
+{
+    -gtk-icon-source: -gtk-icontheme("gtk-yes");
+}
+
 radio:hover,
 check:hover,
 radio:hover:focus,
@@ -642,26 +648,48 @@ statusbar *
     border: none;
 }
 
+menubar > item
+{
+    border: 0;
+    background-color: @bg_color;
+}
+
+menubar > item:hover
+{
+    background-color: @bg_color;
+    border-bottom: 3px solid @menu_hilite_color;
+    color: @menu_hilite_color;
+}
+
+menubar > item,
+menubar > item popover.menu
+{
+    border-bottom: 3px solid @bg_color;
+    padding: 3px 7px 2px 7px;
+}
+
+menubar > item popover.menu
+{
+    border: 1px solid;
+}
+
 popover > :first-child
 {
     border-width: 1px;
 }
 
-popover.menu :focus :not(check):not(radio),
-popover.menu :hover :not(check):not(radio),
-popover:not(.menu) modelbutton:focus :not(check):not(radio),
-popover:not(.menu) modelbutton:hover
+popover.menu * > label + accelerator
+{
+    padding-left: 7px;
+}
+
+popover.menu :hover > accelerator,
+popover.menu :hover > label
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
 
-/* Visually draw attention to the focused item that's activated on Return. */
-popover.menu :focus :not(check):not(radio)
-{
-    background-color: @menu_hilite_color;
-    font-style: italic;
-}
 /**********************************************/
 
 

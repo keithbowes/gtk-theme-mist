@@ -215,4 +215,20 @@ toolbar button.image-button:not(.toggle)
 }
 /**********************************************/
 
+popover.menu :focus :not(check):not(radio),
+popover.menu :hover :not(check):not(radio),
+popover:not(.menu) modelbutton:focus :not(check):not(radio),
+popover:not(.menu) modelbutton:hover
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+/* Visually draw attention to the focused item that's activated on Return. */
+popover.menu :focus :not(check):not(radio)
+{
+    background-color: @menu_hilite_color;
+    font-style: italic;
+}
+
 /* Overrides */
