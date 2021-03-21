@@ -268,7 +268,7 @@ button
     border-style: solid;
     border-top-color: @base_color;
     border-width: 1px;
-    padding: 1px;
+    padding: 5px;
 }
 
 button:not(.toggle).destructive-action,
@@ -491,8 +491,9 @@ combobox button
     padding: 0;
 }
 
-combobox window.popup :hover
+combobox cellview:hover
 {
+    background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
 /**********************************************/
