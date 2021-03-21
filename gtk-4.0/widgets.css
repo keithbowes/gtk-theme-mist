@@ -493,20 +493,6 @@ combobox window.popup :hover
 
 
 /**********************************************/
-toolbar
-{
-    padding: 2px 0;
-    border-width: 0 0 1px 0;
-}
-
-toolbar button.image-button:not(.toggle)
-{
-    border: none;
-}
-/**********************************************/
-
-
-/**********************************************/
 progressbar progress,
 progressbar progress .row,
 progressbar progress .row:hover
@@ -560,112 +546,7 @@ arrow.top
     -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
 
-menubar
-{
-    border-width: 0 0 1px 0;
-}
 
-menu
-{
-    border-style: solid;
-    border-width: 1px;
-}
-
-menuitem
-{
-    border-width: 0;
-    background-color: transparent;
-    padding: 3px 7px 2px 7px;
-}
-
-menu > menuitem > arrow
-{
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-}
-
-menu > menuitem > arrow:dir(rtl)
-{
-    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
-}
-
-menu > menuitem label
-{
-    color: inherit;
-}
-
-menu > menuitem:hover,
-menu > menuitem:hover accellabel accelerator,
-menu > menuitem:hover arrow,
-menu > menuitem:hover label
-{
-    background-color: @selected_bg_color;
-    color: @selected_fg_color;
-}
-
-/* Don't highlight submenus of hovered items */
-menu > menuitem:hover menu accellabel accelerator,
-menu > menuitem:hover menu arrow,
-menu > menuitem:hover menu label
-{
-    background-color: transparent;
-    color: inherit;
-}
-
-menu > menuitem check,
-menu > menuitem radio
-{
-    background-color: @selected_fg_color;
-    color: @selected_bg_color;
-    margin-right: 5px;
-    min-height: 10px;
-    min-width: 10px;
-}
-
-menu > menuitem check,
-menu > menuitem check:checked,
-menu > menuitem check:checked:hover,
-menu > menuitem check:hover,
-menu > menuitem radio,
-menu > menuitem radio:checked,
-menu > menuitem radio:checked:hover,
-menu > menuitem radio:hover
-{
-    border: none;
-}
-
-menu > menuitem check:hover,
-menu > menuitem radio:hover
-{
-    background-color: @bg_color;
-}
-
-menu > menuitem check
-{
-    color: shade(@selected_bg_color, 0.9);
-    -gtk-icon-source: -gtk-icontheme("checkbox-symbolic");
-}
-
-menu > menuitem check:checked
-{
-    -gtk-icon-source: -gtk-icontheme("checkbox-checked-symbolic");
-}
-
-menu > menuitem check:disabled,
-menu > menuitem radio:disabled
-{
-    background-color: shade(@base_color, 0.95);
-    color: mix(@fg_color, @base_color, 0.5);
-}
-
-menu > menuitem radio
-{
-    -gtk-icon-source: -gtk-icontheme("radio-symbolic");
-}
-
-menu > menuitem radio:checked
-{
-    -gtk-icon-source: -gtk-icontheme("radio-checked-symbolic");
-}
 /**********************************************/
 
 
@@ -766,16 +647,20 @@ popover > :first-child
     border-width: 1px;
 }
 
-/* Visually differentiating the text color of hovered and focused items
- * to draw attention to that it's the focused item that's activated on Return.
-*/
 popover.menu :focus :not(check):not(radio),
-popover.menu :hover :not(check):not(label):not(radio),
+popover.menu :hover :not(check):not(radio),
 popover:not(.menu) modelbutton:focus :not(check):not(radio),
 popover:not(.menu) modelbutton:hover
 {
     background-color: @selected_bg_color;
-    color: @seleceted_fg_color;
+    color: @selected_fg_color;
+}
+
+/* Visually draw attention to the focused item that's activated on Return. */
+popover.menu :focus :not(check):not(radio)
+{
+    background-color: @menu_hilite_color;
+    font-style: italic;
 }
 /**********************************************/
 
