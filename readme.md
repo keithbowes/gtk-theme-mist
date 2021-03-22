@@ -22,42 +22,47 @@ License    |GNU GPLv2 or later
 
   - No visual indication of the focused notebook tab
 
-#### Imported from upstream
-
-My comments are in parentheses
-
-  - focus hint (I have no idea what that means)
-  - text on progress bar (test case?)
-  - ~~visited links are white~~ (fixed)
-  - ComboBoxes: color under cursor should be white
-  - CheckBoxes, ComboBoxes: tick disappears (works for me)
-  - ~~Buttons: down state~~ (fixed)
-  - Buttons in dialogs (what about them?)
-  - FileChooser (what about it?)
-  - Tooltips (what about them?)
-  - Notebook, indent inactive tabs (does that mean that inactive tabs are indented or that they should be?)
-
 ## gtk-4.0
 
   - shares as much code with gtk-3.0 as possible
 
 ## Install
 
-For GTK 2.x:
+### GTK+ 2.x
 
-    $ cd
-    $ install -d .themes
-    $ cd .themes
-    $ git clone https://github.com/keithbowes/gtk-theme-mist Mist
+GTK+ 2's theme engines already includes Mist so you'll likely not have to install it, but if you do it has to be in ~/.themes:
 
-    $ echo gtk-theme-name="Mist" >> ~/.gtkrc-2.0
+```
+install -d ~/.themes
+cd ~/.themes
+git clone https://github.com/keithbowes/gtk-theme-mist Mist
+```
 
-For GTK 3.x and 4.x:
+After that, you'll need to update ~/.gtkrc-2.0:
 
-    $ cd
-    $ install -d .local/share/themes
-    $ cd .local/share/themes
-    $ git clone https://github.com/keithbowes/gtk-theme-mist Mist
+```
+echo gtk-theme-name="Mist" >> ~/.gtkrc-2.0
+```
 
-    $ echo gtk-theme-name=Mist >> ~/.config/gtk-3.0/settings.ini
-    $ gsettings set org.gnome.desktop.interface gtk-theme "'Mist'"
+### GTK 3.x and 4.x
+
+For these versions, it's still possible to put themes in ~/.themes, but you'll most likely want to put user themes under ~/.local/share (or wherever $XDG_DATA_HOME points to) as you move away from the archaic GTK+ 2.x:
+
+```
+cd ${XDG_DATA_HOME:-~/.local/share}
+install -d themes
+cd themes
+git clone https://github.com/keithbowes/gtk-theme-mist Mist
+```
+
+Next, you'll need to tell GTK to use Mist.  This usually involves updating gsettings:
+
+```
+gsettings set org.gnome.desktop.interface gtk-theme "'Mist'"
+```
+
+You can specify the theme in your settings.ini file, but applications don't always pick that up; for example, for GTK 3:
+
+```
+echo gtk-theme-name=Mist >> ${XDG_CONFIG_HOME:-~/.config}/gtk-3.0/settings.ini
+```
