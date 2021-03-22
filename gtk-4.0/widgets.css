@@ -137,7 +137,7 @@ trough > row:hover,
 trough > row:selected,
 trough > row:selected:focus
 {
-    background-color: mix(@fg_color, @bg_color, 0.9);
+    background-color: @trough_color;
     border-width: 0px;
 }
 
@@ -232,7 +232,7 @@ switch > :nth-child(2)
 
 switch > slider
 {
-    background-color: mix(@fg_color, @bg_color, 0.9);
+    background-color: @trough_color;
 }
 /**********************************************/
 
@@ -594,7 +594,7 @@ notebook > header > tabs > tab
     border-right-color: @border_color1;
     border-left-color: @base_color;
     border-top-color: @base_color;
-    background-color: mix(@fg_color, @bg_color, 0.9);
+    background-color: @trough_color;
 }
 
 notebook > header > tabs > tab:checked
@@ -626,6 +626,28 @@ notebook > header.right > tabs > tab
     margin-left: -1px;
     border-left-width: 0px;
 }
+
+
+/**********************************************/
+window.assistant .sidebar
+{
+    background-color: @trough_color;
+    padding-top: 2px;
+}
+
+window.assistant .sidebar .highlight,
+window.assistant > :last-child,
+window.assistant .title
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+window.assistant .title
+{
+    font-weight: bold;
+}
+/**********************************************/
 
 
 /**********************************************/

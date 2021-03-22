@@ -58,6 +58,28 @@ radio + label
     border-width: 1px;
 }
 
+
+/**********************************************/
+assistant .sidebar
+{
+    background-color: @trough_color;
+}
+
+assistant .sidebar .highlight,
+assistant .title
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+assistant .title
+{
+    font-weight: bold;
+    min-width: 531px;
+    padding: 3px 0;
+}
+/**********************************************/
+
 /**********************************************/
 menubar
 {

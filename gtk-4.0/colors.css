@@ -9,6 +9,7 @@
 @define-color scrollbar_slider_hover_color shade(@scrollbar_slider_color, 1.02);
 @define-color tooltip_bg_color #f5f5b5;
 @define-color tooltip_fg_color @fg_color;
+@define-color trough_color mix(@fg_color, @bg_color, 0.9);
 
 @define-color border_color #a4a4a4;
 @define-color border_color1 #939393;
