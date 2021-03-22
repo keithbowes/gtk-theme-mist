@@ -17,6 +17,16 @@ radio row
     border-width: 1px;
 }
 
+switch:checked
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+switch:disabled
+{
+    background-color: shade(@bg_color, 0.95);
+}
 
 /**********************************************/
 menubar
@@ -228,6 +238,35 @@ popover.menu :focus :not(check):not(radio)
 {
     background-color: mix(@bg_color, @selected_bg_color, 1.6);
     font-style: italic;
+}
+
+scale > contents > trough
+{
+    border-width: 1px;
+    border-color: @border_color1;
+    border-right-color: @base_color;
+    border-bottom-color: @base_color;
+}
+
+scale.horizontal > contents > trough
+{
+    padding: 0 7px;
+}
+
+scale.vertical > contents > trough
+{
+    padding: 7px 0;
+}
+
+scale > contents > trough > slider
+{
+    background-color: @bg_color;
+    border-left-color: @base_color;
+    border-top-color: @base_color;
+    border-width: 1px;
+    padding: 1px;
+    min-height: 10px;
+    min-width: 10px;
 }
 
 /* Overrides */

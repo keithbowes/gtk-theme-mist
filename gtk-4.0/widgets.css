@@ -171,7 +171,7 @@ progressbar > trough
     background-color: @bg_color;
 }
 
-scale > contents > trough
+scale > trough
 {
     border-width: 1px;
     border-color: @border_color1;
@@ -179,25 +179,25 @@ scale > contents > trough
     border-bottom-color: @base_color;
 }
 
-scale.horizontal > contents > trough
+scale.horizontal > trough
 {
     padding: 0 7px;
 }
 
-scale.vertical > contents > trough
+scale.vertical > trough
 {
     padding: 7px 0;
 }
 
-scale > contents > trough > slider
+scale > trough > slider
 {
-    background-color: @bg_color;
+    background-color: @selected_bg_color;
     border-left-color: @base_color;
     border-top-color: @base_color;
     border-width: 1px;
-    padding: 1px;
     min-height: 10px;
     min-width: 10px;
+    padding: 1px;
 }
 
 scale mark *
@@ -220,15 +220,19 @@ switch
     border-width: 1px;
 }
 
-switch:checked
+switch > label:first-child
 {
     background-color: @selected_bg_color;
-    color: @selected_fg_color;
 }
 
-switch:disabled
+switch > label:last-child
 {
     background-color: shade(@bg_color, 0.95);
+}
+
+switch > slider
+{
+    background-color: mix(@fg_color, @bg_color, 0.9);
 }
 /**********************************************/
 
