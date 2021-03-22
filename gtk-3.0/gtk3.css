@@ -269,4 +269,19 @@ scale > contents > trough > slider
     min-width: 10px;
 }
 
+expander arrow
+{
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+
+expander arrow:dir(rtl)
+{
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
+}
+
+expander arrow:checked
+{
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+
 /* Overrides */

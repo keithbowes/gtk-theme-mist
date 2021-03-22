@@ -704,19 +704,15 @@ popover.menu :hover > label
 expander
 {
     border-color: @fg_color;
-}
-
-expander arrow
-{
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
 }
 
-expander arrow:dir(rtl)
+expander:dir(rtl)
 {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
 }
 
-expander arrow:checked
+expander:checked
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
