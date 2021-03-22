@@ -524,6 +524,8 @@ progressbar progress .row:hover
     background-color: @selected_bg_color;
     color: @selected_fg_color;
     border-width: 1px;
+    min-height: 5px;
+    min-width: 5px;
 }
 
 progressbar progress .row:selected
