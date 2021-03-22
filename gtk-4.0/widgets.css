@@ -200,6 +200,12 @@ scale > trough > slider
     padding: 1px;
 }
 
+scale:disabled > trough > slider
+{
+    background-color: @bg_color;
+    border-style: solid;
+}
+
 scale mark *
 {
     min-height: 5px;
