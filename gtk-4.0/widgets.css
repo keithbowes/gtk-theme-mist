@@ -657,20 +657,17 @@ statusbar *
 menubar > item
 {
     border: 0;
-    background-color: @bg_color;
 }
 
-menubar > item:hover
+menubar > item:hover > :first-child
 {
-    background-color: @bg_color;
-    border-bottom: 3px solid @menu_hilite_color;
-    color: @menu_hilite_color;
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
 }
 
 menubar > item,
 menubar > item popover.menu
 {
-    border-bottom: 3px solid @bg_color;
     padding: 3px 7px 2px 7px;
 }
 

@@ -5,7 +5,6 @@
 @define-color selected_bg_color #729fcf;
 @define-color selected_fg_color @base_color;
 
-@define-color menu_hilite_color mix(@bg_color, @selected_bg_color, 1.6);
 @define-color scrollbar_slider_color @bg_color;
 @define-color scrollbar_slider_hover_color shade(@scrollbar_slider_color, 1.02);
 @define-color tooltip_bg_color #f5f5b5;

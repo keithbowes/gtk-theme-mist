@@ -24,11 +24,10 @@ menubar
     border-width: 0 0 1px 0;
 }
 
-menubar > menuitem:hover
+menubar > menuitem:hover > :first-child
 {
-    background-color: @bg_color;
-    border-bottom: 3px solid @menu_hilite_color;
-    color: @menu_hilite_color;
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
 }
 
 menu
@@ -227,7 +226,7 @@ popover:not(.menu) modelbutton:hover
 /* Visually draw attention to the focused item that's activated on Return. */
 popover.menu :focus :not(check):not(radio)
 {
-    background-color: @menu_hilite_color;
+    background-color: mix(@bg_color, @selected_bg_color, 1.6);
     font-style: italic;
 }
 
