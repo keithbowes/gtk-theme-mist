@@ -28,6 +28,36 @@ switch:disabled
     background-color: shade(@bg_color, 0.95);
 }
 
+check
+{
+    -gtk-icon-source: -gtk-icontheme("checkbox-symbolic");
+}
+
+check:checked
+{
+    -gtk-icon-source: -gtk-icontheme("checkbox-checked-symbolic");
+    border: 0;
+}
+
+radio
+{
+    -gtk-icon-source: -gtk-icontheme("radio-symbolic");
+}
+
+radio:checked
+{
+    -gtk-icon-source: -gtk-icontheme("radio-checked-symbolic");
+    border: 0;
+}
+
+check + label,
+radio + label
+{
+    border-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+}
+
 /**********************************************/
 menubar
 {
@@ -117,12 +147,6 @@ menu > menuitem radio:hover
 menu > menuitem check
 {
     color: shade(@selected_bg_color, 0.9);
-    -gtk-icon-source: -gtk-icontheme("checkbox-symbolic");
-}
-
-menu > menuitem check:checked
-{
-    -gtk-icon-source: -gtk-icontheme("checkbox-checked-symbolic");
 }
 
 menu > menuitem check:disabled,
@@ -130,16 +154,6 @@ menu > menuitem radio:disabled
 {
     background-color: shade(@base_color, 0.95);
     color: mix(@fg_color, @base_color, 0.5);
-}
-
-menu > menuitem radio
-{
-    -gtk-icon-source: -gtk-icontheme("radio-symbolic");
-}
-
-menu > menuitem radio:checked
-{
-    -gtk-icon-source: -gtk-icontheme("radio-checked-symbolic");
 }
 /**********************************************/
 

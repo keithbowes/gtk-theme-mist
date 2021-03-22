@@ -444,10 +444,9 @@ check:selected:focus
     color: shade(@selected_bg_color, 0.9);
 }
 
-check:checked,
-radio:checked
+check:checked
 {
-    -gtk-icon-source: -gtk-icontheme("gtk-yes");
+    -gtk-icon-source: url("check.svg");
 }
 
 radio:hover,
@@ -468,12 +467,21 @@ check:disabled:selected
     color: mix(@fg_color, @base_color, 0.5);
 }
 
-check + label,
-radio + label
+radio:checked
 {
-    border-color: transparent;
-    border-style: solid;
-    border-width: 1px;
+    -gtk-icon-source: url("radio.svg");
+}
+
+check:dir(ltr) > label,
+radio:dir(ltr) > label
+{
+    padding-right: 3px;
+}
+
+check:dir(rtl) > label,
+radio:dir(rtl) > label
+{
+    padding-left: 3px;
 }
 /**********************************************/
 
@@ -659,6 +667,12 @@ menubar > item popover.menu
 menubar > item popover.menu
 {
     border: 1px solid;
+}
+
+menubar > item check,
+menubar > item radio
+{
+    margin: 1px 5px 1px 0;
 }
 
 popover > :first-child
