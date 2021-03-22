@@ -701,18 +701,22 @@ popover.menu :hover > label
 
 
 /**********************************************/
-expander
+expander,
+.expander
 {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
     border-color: @fg_color;
+    min-height: 1em;
 }
 
-expander:dir(rtl)
+expander:dir(rtl),
+.expander:dir(rtl)
 {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
 }
 
-expander:checked
+expander:checked,
+.expander:checked
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
