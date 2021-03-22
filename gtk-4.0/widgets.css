@@ -118,9 +118,9 @@ row
     border-width: 0;
 }
 
-row:hover
+row:nth-child(even)
 {
-    background-color: shade(@base_color, 0.95);
+    background-color: shade(@bg_color, 0.95);
 }
 
 row:nth-child(odd)
@@ -618,25 +618,6 @@ notebook > header.right > tabs > tab
     margin-left: -1px;
     border-left-width: 0px;
 }
-
-/**********************************************/
-.sidebar,
-.sidebar.view
-{
-    background-color: shade(@bg_color, 1.05);
-}
-
-.sidebar :hover,
-.sidebar.view :hover
-{
-    background-color: @bg_color;
-}
-
-.sidebar :active
-{
-    background-color: @selected_bg_color;
-}
-/**********************************************/
 
 
 /**********************************************/

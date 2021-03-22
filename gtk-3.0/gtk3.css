@@ -224,6 +224,26 @@ toolbar button.image-button:not(.toggle)
 }
 /**********************************************/
 
+
+/**********************************************/
+.sidebar,
+.sidebar.view
+{
+    background-color: shade(@bg_color, 1.05);
+}
+
+.sidebar :hover,
+.sidebar.view :hover
+{
+    background-color: @bg_color;
+}
+
+.sidebar :active
+{
+    background-color: @selected_bg_color;
+}
+/**********************************************/
+
 popover.menu :focus :not(check):not(radio),
 popover.menu :hover :not(check):not(radio),
 popover:not(.menu) modelbutton:focus :not(check):not(radio),
@@ -238,6 +258,11 @@ popover.menu :focus :not(check):not(radio)
 {
     background-color: mix(@bg_color, @selected_bg_color, 1.6);
     font-style: italic;
+}
+
+row:hover
+{
+    background-color: shade(@base_color, 0.95);
 }
 
 scale > contents > trough
