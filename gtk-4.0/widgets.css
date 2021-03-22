@@ -771,3 +771,14 @@ infobar.error
     color: magenta;
 }
 /**********************************************/
+
+
+/**********************************************/
+list row:selected *,
+listview row:selected *,
+listview row:selected:hover *
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+/**********************************************/
