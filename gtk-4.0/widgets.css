@@ -220,12 +220,12 @@ switch
     border-width: 1px;
 }
 
-switch > label:first-child
+switch > :nth-child(1)
 {
     background-color: @selected_bg_color;
 }
 
-switch > label:last-child
+switch > :nth-child(2)
 {
     background-color: shade(@bg_color, 0.95);
 }
@@ -703,8 +703,8 @@ popover.menu :hover > label
 /**********************************************/
 expander
 {
-    border-color: @fg_color;
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    border-color: @fg_color;
 }
 
 expander:dir(rtl)
@@ -715,6 +715,19 @@ expander:dir(rtl)
 expander:checked
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+/**********************************************/
+
+
+/**********************************************/
+.error
+{
+    color: @error_bg_color;
+}
+
+.warning
+{
+    color: @warning_bg_color;
 }
 
 infobar.info
@@ -739,5 +752,22 @@ infobar.error
 {
     background-color: @error_bg_color;
     color: @error_fg_color;
+}
+
+
+/**********************************************/
+*:link
+{
+    color: blue;
+}
+
+*:link:hover
+{
+    color: red;
+}
+
+*:visited
+{
+    color: magenta;
 }
 /**********************************************/
