@@ -442,7 +442,7 @@ radio:selected:focus
 {
     background-color: @base_color;
     border: 1px solid @border_color;
-    border-radius: 8px;
+    border-radius: 100%;
     color: @selected_bg_color;
 }
 
@@ -458,7 +458,24 @@ check:selected:focus
 
 check:checked
 {
-    -gtk-icon-source: url("check.svg");
+    -gtk-icon-source: url("../assets/check.svg");
+}
+
+check:checked:disabled
+{
+    -gtk-icon-source: url("../assets/check-disabled.svg");
+}
+
+radio:indeterminate,
+check:indeterminate
+{
+    -gtk-icon-source: url("../assets/mixed.svg");
+}
+
+check:indeterminate:disabled,
+radio:indeterminate:disabled
+{
+    -gtk-icon-source: url("../assets/mixed-disabled.svg");
 }
 
 radio:hover,
@@ -481,28 +498,20 @@ check:disabled:selected
 
 radio:checked
 {
-    -gtk-icon-source: url("radio.svg");
+    -gtk-icon-source: url("../assets/radio.svg");
+}
+
+radio:checked:disabled
+{
+    -gtk-icon-source: url("../assets/radio-disabled.svg");
 }
 
 check + label,
 radio + label
 {
-    border-color: transparent;
-    border-style: solid;
-    border-width: 1px;
+    padding-left: 1ex;
 }
 
-check:dir(ltr) + label,
-radio:dir(ltr) + label
-{
-    padding-right: 3px;
-}
-
-check:dir(rtl) + label,
-radio:dir(rtl) + label
-{
-    padding-left: 3px;
-}
 /**********************************************/
 
 

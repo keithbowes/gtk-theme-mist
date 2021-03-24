@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="16px" width="16px">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="12px" width="12px">
   <desc>Checked check button</desc>
-  <rect height="12" width="12" x="2" y="2" fill="#729fcf" />
+  <rect height="8" width="8" x="2" y="2" fill="#729fcf" />
 </svg>
