@@ -1,0 +1,37 @@
+@define-color base_color #fff;
+@define-color bg_color #eaeaea;
+@define-color fg_color #000;
+
+@define-color selected_bg_color #729fcf;
+@define-color selected_fg_color @base_color;
+
+@define-color disabled_color shade(@bg_color, 0.95);
+
+@define-color scrollbar_slider_color @bg_color;
+@define-color scrollbar_slider_hover_color shade(@scrollbar_slider_color, 1.02);
+@define-color tooltip_bg_color #f5f5b5;
+@define-color tooltip_fg_color @fg_color;
+@define-color trough_color mix(@fg_color, @bg_color, 0.9);
+
+@define-color border_color #a4a4a4;
+@define-color border_color1 #939393;
+@define-color button_active_bottom_right_border_color #f3f1ef;
+@define-color button_active_top_left_border_color #8c8477;
+@define-color button_focused_border_color #373737;
+@define-color disabled_border_color #9c9c9c;
+@define-color tooltip_border_color @fg_color;
+
+@define-color info_fg_color rgb(181, 171, 156);
+@define-color info_bg_color rgb(252, 252, 189);
+@define-color warning_fg_color rgb(173, 120, 41);
+@define-color warning_bg_color rgb(250, 173, 61);
+@define-color question_fg_color rgb(97, 122, 214);
+@define-color question_bg_color rgb(138, 173, 212);
+@define-color error_fg_color rgb(166, 38, 38);
+@define-color error_bg_color rgb(237, 54, 54);
+
+/* Theme colors */
+@define-color theme_base_color @base_color;
+@define-color theme_bg_color @bg_color;
+@define-color theme_fg_color @fg_color;
+@define-color theme_text_color @theme_fg_color;

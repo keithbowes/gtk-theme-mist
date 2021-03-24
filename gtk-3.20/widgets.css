@@ -1,6 +1,9 @@
 /**********************************************/
 *
 {
+    -GtkToolItemGroup-expander-size: 9;
+    -GtkExpander-expander-size: 9;
+    -GtkTreeView-expander-size: 9;
     padding: 0;
     color: @fg_color;
     border-color: @border_color;
@@ -30,8 +33,7 @@ selection:focus
 
 .view:focus,
 entry:focus,
-label:focus,
-text:focus
+label:focus
 {
     color: @fg_color;
 }
@@ -118,21 +120,14 @@ row
     border-width: 0;
 }
 
-row:nth-child(even)
-{
-    background-color: shade(@bg_color, 0.95);
-}
-
 row:nth-child(odd)
 {
     background-color: shade(@base_color, 0.97);
 }
 
-row:selected *,
-row:selected:hover *
+row:hover
 {
-    background-color: @selected_bg_color;
-    color: @selected_fg_color;
+    background-color: shade(@base_color, 0.95);
 }
 /**********************************************/
 
@@ -158,14 +153,14 @@ trough > row:selected:focus
     border-color: @selected_fg_color;
 }
 
-paned separator
+pane-separator
 {
     background-color: @bg_color;
     border-color: @border_color;
     border-width: 2px;
 }
 
-paned separator:hover
+pane-separator:hover
 {
     background-color: shade(@base_color, 0.95);
 }
@@ -185,7 +180,7 @@ scrollbar slider:hover
     background-color: @scrollbar_slider_hover_color;
 }
 
-scale > trough
+scale > contents > trough
 {
     border-width: 1px;
     border-color: @border_color1;
@@ -193,32 +188,25 @@ scale > trough
     border-bottom-color: @base_color;
 }
 
-scale.horizontal > trough
+scale.horizontal > contents > trough
 {
     padding: 0 7px;
 }
 
-scale.vertical > trough
+scale.vertical > contents > trough
 {
     padding: 7px 0;
 }
 
-scale > trough > slider
+scale > contents > trough > slider
 {
-    background-color: @selected_bg_color;
+    background-color: @bg_color;
     border-left-color: @base_color;
     border-top-color: @base_color;
-    border-style: solid;
     border-width: 1px;
+    padding: 1px;
     min-height: 10px;
     min-width: 10px;
-    padding: 1px;
-}
-
-scale mark *
-{
-    min-height: 5px;
-    min-width: 1px;
 }
 
 scrolledwindow
@@ -229,26 +217,15 @@ scrolledwindow
 
 
 /**********************************************/
-switch
-{
-    background-color: transparent;
-    border-width: 1px;
-}
-
-switch > label:first-child
-{
-    background-color: shade(@selected_bg_color, 1.35);
-}
-
-switch > label:last-child
-{
-    background-color: @trough_color;
-}
-
-switch > slider
+switch:checked
 {
     background-color: @selected_bg_color;
-    border-style: outset;
+    color: @selected_fg_color;
+}
+
+switch:disabled
+{
+    background-color: shade(@bg_color, 0.95);
 }
 /**********************************************/
 
@@ -383,11 +360,6 @@ spinbutton button:focus
     }
 }
 
-spinner
-{
-    -gtk-icon-source: -gtk-icontheme('process-working-symbolic');
-}
-
 spinner:checked
 {
     animation-name: spin;
@@ -399,8 +371,7 @@ spinner:checked
 
 
 /**********************************************/
-entry,
-text
+entry
 {
     background-color: @base_color;
     padding: 2px 2px 3px 2px;
@@ -408,8 +379,7 @@ text
     border-width: 1px;
 }
 
-entry:disabled,
-text.read-only
+entry:disabled
 {
     background-color: shade(@base_color, 0.95);
 }
@@ -419,7 +389,7 @@ entry progress
     background-color: shade(@selected_bg_color, 1.35);
 }
 
-entry text
+entry
 {
     border: none;
 }
@@ -456,11 +426,6 @@ check:selected:focus
     color: shade(@selected_bg_color, 0.9);
 }
 
-check:checked
-{
-    -gtk-icon-source: url("check.svg");
-}
-
 radio:hover,
 check:hover,
 radio:hover:focus,
@@ -479,29 +444,11 @@ check:disabled:selected
     color: mix(@fg_color, @base_color, 0.5);
 }
 
-radio:checked
+check row,
+radio row
 {
-    -gtk-icon-source: url("radio.svg");
-}
-
-check + label,
-radio + label
-{
-    border-color: transparent;
-    border-style: solid;
+    background-color: @base_color;
     border-width: 1px;
-}
-
-check:dir(ltr) + label,
-radio:dir(ltr) + label
-{
-    padding-right: 3px;
-}
-
-check:dir(rtl) + label,
-radio:dir(rtl) + label
-{
-    padding-left: 3px;
 }
 /**********************************************/
 
@@ -527,12 +474,6 @@ combobox button
 {
     padding: 0;
 }
-
-combobox cellview:hover *
-{
-    background-color: @selected_bg_color;
-    color: @selected_fg_color;
-}
 /**********************************************/
 
 
@@ -556,10 +497,25 @@ progressbar > trough
 {
     background-color: @bg_color;
 }
+progressbar progress .row:selected
+{
+    border-color: @fg_color;
+}
+
+progressbar progress .row:selected:focus
+{
+    border-color: @selected_fg_color;
+}
 /**********************************************/
 
 
 /**********************************************/
+arrow
+{
+    min-height: 16px;
+    min-width: 16px;
+}
+
 arrow.bottom
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
@@ -651,25 +607,39 @@ notebook > header.right > tabs > tab
 
 
 /**********************************************/
-window.assistant .sidebar
+assistant .sidebar
 {
-    padding-top: 2px;
+    background-color: @trough_color;
 }
 
-window.assistant .sidebar .highlight,
-window.assistant headerbar,
-window.assistant .title
+assistant .sidebar .highlight,
+assistant .title
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
 
-window.assistant .sidebar .highlight,
-window.assistant .title
+assistant .title
 {
     font-weight: bold;
+    min-width: 531px;
+    padding: 3px 0;
 }
 /**********************************************/
+
+
+/**********************************************/
+
+statusbar *
+{
+    border: none;
+}
+
+
+popover > :first-child
+{
+    border-width: 1px;
+}
 
 
 /**********************************************/
@@ -693,125 +663,208 @@ statusbar *
 
 
 /**********************************************/
+menubar
+{
+    border-width: 0 0 1px 0;
+}
+
+menubar > menuitem:hover > :first-child
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+menu
+{
+    border-style: solid;
+    border-width: 1px;
+}
+
+menuitem
+{
+    border-width: 0;
+    background-color: transparent;
+    padding: 3px 7px 2px 7px;
+}
+
+menu > menuitem label
+{
+    color: inherit;
+}
+
+menu > menuitem:hover,
+menu > menuitem:hover arrow,
+menu > menuitem:hover label,
+menu > menuitem:hover label accelerator
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+/* Don't highlight submenus of hovered items */
+menu > menuitem:hover menu arrow,
+menu > menuitem:hover menu label,
+menu > menuitem:hover menu label accelerator
+{
+    background-color: transparent;
+    color: inherit;
+}
+
+menu > menuitem check,
+menu > menuitem radio
+{
+    background-color: @selected_fg_color;
+    color: @selected_bg_color;
+    margin-right: 5px;
+    min-height: 10px;
+    min-width: 10px;
+}
+
+menu > menuitem check,
+menu > menuitem check:checked,
+menu > menuitem check:checked:hover,
+menu > menuitem check:hover,
+menu > menuitem radio,
+menu > menuitem radio:checked,
+menu > menuitem radio:checked:hover,
+menu > menuitem radio:hover
+{
+    border: none;
+}
+
+menu > menuitem check:hover,
+menu > menuitem radio:hover
+{
+    background-color: @bg_color;
+}
+
+menu > menuitem check
+{
+    -gtk-icon-source: -gtk-icontheme("checkbox-symbolic");
+    color: shade(@selected_bg_color, 0.9);
+}
+
+menu > menuitem check:checked
+{
+    -gtk-icon-source: -gtk-icontheme("checkbox-checked-symbolic");
+}
+
+menu > menuitem check:disabled,
+menu > menuitem radio:disabled
+{
+    background-color: shade(@base_color, 0.95);
+    color: mix(@fg_color, @base_color, 0.5);
+}
+
+menu > menuitem radio
+{
+    -gtk-icon-source: -gtk-icontheme("radio-symbolic");
+}
+
+menu > menuitem radio:checked
+{
+    -gtk-icon-source: -gtk-icontheme("radio-checked-symbolic");
+}
+/**********************************************/
+
+
+scrollbar button,
+scrollbar button:hover,
+scrollbar button:active,
+scrollbar button:hover:active
+{
+    border-color: @border_color;
+    min-height: 1px;
+    min-width: 1px;
+}
+
+scrollbar.horizontal button.down
+{
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+}
+
+scrollbar.horizontal button.up
+{
+    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic");
+}
+
+scrollbar.vertical button.down
+{
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+
+scrollbar.vertical button.up
+{
+    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+}
+
+
+/**********************************************/
+toolbar
+{
+    padding: 2px 0;
+    border-width: 0 0 1px 0;
+}
+
+toolbar button.image-button:not(.toggle)
+{
+    border: none;
+}
+/**********************************************/
+
+
+/**********************************************/
 .sidebar
 {
     background-color: shade(@bg_color, 1.05);
 }
 
-.sidebar :hover
+.sidebar :hover,
+.sidebar.view :hover
 {
     background-color: @bg_color;
 }
 
-.sidebar.view :active
+.sidebar :active
 {
     background-color: @selected_bg_color;
 }
 /**********************************************/
 
 
-popover > :first-child
-{
-    border-width: 1px;
-}
-
-menubar > item
-{
-    border: 0;
-}
-
-menubar > item:selected,
-menubar > item:selected > label
+popover modelbutton:hover :not(check):not(radio)
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
 
-menubar > item,
-menubar > item popover.menu
+/* Visually draw attention to the focused item that's activated on Return. */
+popover modelbutton:focus :not(check):not(radio)
 {
-    padding: 3px 7px 2px 7px;
-}
-
-menubar > item popover.menu
-{
-    border: @trough_color 1px solid;
-}
-
-menubar > item check,
-menubar > item radio
-{
-    margin: 1px 5px 1px 0;
-}
-
-popover.menu modelbutton:hover,
-popover.menu modelbutton:selected
-{
-    background-color: @selected_bg_color;
-}
-
-popover.menu modelbutton:hover > :not(.menu),
-popover.menu modelbutton:selected > :not(.menu)
-{
+    background-color: mix(@bg_color, @selected_bg_color, 1.6);
     color: @selected_fg_color;
-}
-
-popover.menu modelbutton:selected:not(:hover) > :not(.menu)
-{
     font-style: italic;
 }
 
-popover.menu modelbutton > accelerator
-{
-    margin-left: 8ex;
-}
-/**********************************************/
-
-
-/**********************************************/
-expander,
-.expander
+expander arrow
 {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
-    border-color: @fg_color;
-    min-height: 1em;
 }
 
-expander:dir(rtl),
-.expander:dir(rtl)
+expander arrow:dir(rtl)
 {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl");
 }
 
-expander:checked,
-.expander:checked
+expander arrow:checked
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
-/**********************************************/
-
 
 /**********************************************/
-.error
-{
-    color: @error_bg_color;
-}
 
-.info
-{
-    color: @info_bg_color;
-}
 
-.question
-{
-    color: @question_bg_color;
-}
-
-.warning
-{
-    color: @warning_bg_color;
-}
-
+/**********************************************/
 infobar.info
 {
     background-color: @info_bg_color;
