@@ -77,6 +77,46 @@ image:disabled
     background-color: transparent;
     border-width: 0;
 }
+
+.large-title
+{
+    font-size: 200%;
+}
+
+.title-1
+{
+    font-size: 180%;
+}
+
+.title-2
+{
+    font-size: 160%;
+}
+
+.title-3
+{
+    font-size: 140%;
+}
+
+.title-4, .heading
+{
+    font-size: 120%;
+}
+
+.body
+{
+    font-family: serif;
+}
+
+.caption, .caption-heading
+{
+    font-family: monospace;
+}
+
+.caption-heading, .heading
+{
+    font-weight: bold;
+}
 /**********************************************/
 
 
