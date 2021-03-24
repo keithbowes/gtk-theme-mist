@@ -48,7 +48,7 @@ treeview.view:focus *
 
 *:disabled
 {
-    background-color: shade(@bg_color, 0.95);
+    background-color: @disabled_color;
     border-color: @disabled_border_color;
     color: mix(@fg_color, @base_color, 0.5);
 }
@@ -127,6 +127,13 @@ row:nth-child(odd)
 {
     background-color: shade(@base_color, 0.97);
 }
+
+row:selected *,
+row:selected:hover *
+{
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
 /**********************************************/
 
 
@@ -151,6 +158,19 @@ trough > row:selected:focus
     border-color: @selected_fg_color;
 }
 
+paned separator
+{
+    background-color: @bg_color;
+    border-color: @border_color;
+    border-width: 2px;
+}
+
+paned separator:hover
+{
+    background-color: shade(@base_color, 0.95);
+}
+
+
 scrollbar slider
 {
     background-color: @scrollbar_slider_color;
@@ -164,11 +184,6 @@ scrollbar slider
 scrollbar slider:hover
 {
     background-color: @scrollbar_slider_hover_color;
-}
-
-progressbar > trough
-{
-    background-color: @bg_color;
 }
 
 scale > trough
@@ -194,16 +209,11 @@ scale > trough > slider
     background-color: @selected_bg_color;
     border-left-color: @base_color;
     border-top-color: @base_color;
+    border-style: solid;
     border-width: 1px;
     min-height: 10px;
     min-width: 10px;
     padding: 1px;
-}
-
-scale:disabled > trough > slider
-{
-    background-color: @bg_color;
-    border-style: solid;
 }
 
 scale mark *
@@ -226,19 +236,20 @@ switch
     border-width: 1px;
 }
 
-switch > :nth-child(1)
+switch > label:first-child
 {
-    background-color: @selected_bg_color;
+    background-color: shade(@selected_bg_color, 1.35);
 }
 
-switch > :nth-child(2)
+switch > label:last-child
 {
-    background-color: shade(@bg_color, 0.95);
+    background-color: @trough_color;
 }
 
 switch > slider
 {
-    background-color: @trough_color;
+    background-color: @selected_bg_color;
+    border-style: outset;
 }
 /**********************************************/
 
@@ -248,10 +259,6 @@ slider
 {
     border-width: 1px;
     background-color: @bg_color;
-}
-
-slider:disabled
-{
 }
 /**********************************************/
 
@@ -322,7 +329,7 @@ button:active:hover
 
 button:disabled
 {
-    background-color: shade(@bg_color, 0.95);
+    background-color: @disabled_color;
     border-color: @disabled_border_color;
     color: mix(@fg_color, @base_color, 0.5);
 }
@@ -501,7 +508,7 @@ combobox
 
 combobox:disabled
 {
-    background-color: shade(@bg_color, 0.95);
+    background-color: @disabled_color;
 }
 
 combobox arrow
@@ -514,7 +521,7 @@ combobox button
     padding: 0;
 }
 
-combobox cellview:hover
+combobox cellview:hover *
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
@@ -523,9 +530,7 @@ combobox cellview:hover
 
 
 /**********************************************/
-progressbar progress,
-progressbar progress .row,
-progressbar progress .row:hover
+progressbar progress
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
@@ -534,25 +539,20 @@ progressbar progress .row:hover
     min-width: 5px;
 }
 
-progressbar progress .row:selected
+progressbar > text
 {
-    border-color: @fg_color;
+    background-color: @bg_color;
+    border: 0;
 }
 
-progressbar progress .row:selected:focus
+progressbar > trough
 {
-    border-color: @selected_fg_color;
+    background-color: @bg_color;
 }
 /**********************************************/
 
 
 /**********************************************/
-arrow
-{
-    min-height: 16px;
-    min-width: 16px;
-}
-
 arrow.bottom
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
@@ -577,6 +577,7 @@ arrow.top
 {
     -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
+/**********************************************/
 
 
 /**********************************************/
@@ -597,18 +598,25 @@ notebook > stack
 notebook > header > tabs > tab
 {
     padding: 4px;
-    border-style: solid;
+    border-style: outset;
     border-width: 1px;
-    border-right-color: @border_color1;
-    border-left-color: @base_color;
-    border-top-color: @base_color;
+    border-color: @trough_color;
     background-color: @trough_color;
 }
 
 notebook > header > tabs > tab:checked
 {
     background-color: @bg_color;
-    border-color: @button_focused_border_color;
+}
+notebook:focus > header > tabs > tab > label
+{
+    border-color: @border_color;
+    border-width: 1px;
+}
+
+notebook:focus > header > tabs > tab:checked > label
+{
+    border-style: solid;
 }
 
 notebook > header.top > tabs > tab
@@ -639,18 +647,18 @@ notebook > header.right > tabs > tab
 /**********************************************/
 window.assistant .sidebar
 {
-    background-color: @trough_color;
     padding-top: 2px;
 }
 
 window.assistant .sidebar .highlight,
-window.assistant > :last-child,
+window.assistant headerbar,
 window.assistant .title
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
 
+window.assistant .sidebar .highlight,
 window.assistant .title
 {
     font-weight: bold;
@@ -677,12 +685,27 @@ statusbar *
     border: none;
 }
 
+
+/**********************************************/
+.sidebar
+{
+    background-color: shade(@bg_color, 1.05);
+}
+/**********************************************/
+
+
+popover > :first-child
+{
+    border-width: 1px;
+}
+
 menubar > item
 {
     border: 0;
 }
 
-menubar > item:hover > :first-child
+menubar > item:selected,
+menubar > item:selected > label
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
@@ -696,7 +719,7 @@ menubar > item popover.menu
 
 menubar > item popover.menu
 {
-    border: 1px solid;
+    border: @trough_color 1px solid;
 }
 
 menubar > item check,
@@ -705,23 +728,27 @@ menubar > item radio
     margin: 1px 5px 1px 0;
 }
 
-popover > :first-child
-{
-    border-width: 1px;
-}
-
-popover.menu * > label + accelerator
-{
-    padding-left: 7px;
-}
-
-popover.menu :hover > accelerator,
-popover.menu :hover > label
+popover.menu modelbutton:hover,
+popover.menu modelbutton:selected
 {
     background-color: @selected_bg_color;
+}
+
+popover.menu modelbutton:hover > :not(.menu),
+popover.menu modelbutton:selected > :not(.menu)
+{
     color: @selected_fg_color;
 }
 
+popover.menu modelbutton:selected:not(:hover) > :not(.menu)
+{
+    font-style: italic;
+}
+
+popover.menu modelbutton > accelerator
+{
+    margin-left: 8ex;
+}
 /**********************************************/
 
 
@@ -752,6 +779,16 @@ expander:checked,
 .error
 {
     color: @error_bg_color;
+}
+
+.info
+{
+    color: @info_bg_color;
+}
+
+.question
+{
+    color: @question_bg_color;
 }
 
 .warning
@@ -798,16 +835,5 @@ infobar.error
 *:visited
 {
     color: magenta;
-}
-/**********************************************/
-
-
-/**********************************************/
-list row:selected *,
-listview row:selected *,
-listview row:selected:hover *
-{
-    background-color: @selected_bg_color;
-    color: @selected_fg_color;
 }
 /**********************************************/
