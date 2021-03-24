@@ -354,6 +354,7 @@ button:disabled
 }
 
 button:focus,
+button.toggle:focus > label,
 check:focus + label,
 check:checked:focus + label,
 radio:focus + label,
@@ -365,7 +366,7 @@ radio:checked:focus + label
 button.toggle
 {
     border-style: outset;
-    border-width: 2px;
+    border-width: 1px;
 }
 
 button.toggle:checked
@@ -373,9 +374,16 @@ button.toggle:checked
     border-style: inset;
 }
 
-button.toggle:not(:focus)
+button.toggle
 {
     border-color: @border_color;
+}
+
+button.toggle > label
+{
+    border-color: transparent;
+    border-style: solid;
+    border-width: 1px;
 }
 
 spinbutton,
