@@ -36,16 +36,6 @@ text:focus
     color: @fg_color;
 }
 
-treeview.view:focus
-{
-    color: @border_color;
-}
-
-treeview.view:focus *
-{
-    color: @fg_color;
-}
-
 *:disabled
 {
     background-color: @disabled_color;
@@ -273,16 +263,6 @@ switch
 {
     background-color: transparent;
     border-width: 1px;
-}
-
-switch > label:first-child
-{
-    background-color: shade(@selected_bg_color, 1.35);
-}
-
-switch > label:last-child
-{
-    background-color: @trough_color;
 }
 
 switch > slider
@@ -567,11 +547,6 @@ combobox:disabled
     background-color: @disabled_color;
 }
 
-combobox arrow
-{
-    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
-}
-
 combobox button
 {
     padding: 0;
@@ -609,7 +584,7 @@ progressbar > trough
 
 
 /**********************************************/
-arrow.bottom
+arrow/*.bottom*/
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
@@ -759,6 +734,7 @@ statusbar *
 /**********************************************/
 
 
+/**********************************************/
 popover > :first-child
 {
     border-width: 1px;
