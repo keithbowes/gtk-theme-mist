@@ -466,7 +466,8 @@ checkbutton:disabled
 radio,
 radio:checked,
 radio:selected,
-radio:selected:focus
+radio:selected:focus,
+radio.view:selected:focus
 {
     background-color: @base_color;
     border: 1px solid @border_color;
@@ -477,7 +478,8 @@ radio:selected:focus
 check,
 check:checked,
 check:selected,
-check:selected:focus
+check:selected:focus,
+check.view:selected:focus
 {
     background-color: @base_color;
     border: 1px solid @border_color;
@@ -509,7 +511,7 @@ radio:indeterminate:disabled
 radio:hover,
 check:hover,
 radio:hover:focus,
-.check:hover:focus
+check:hover:focus
 {
     background-color: shade(@base_color, 1.03);
     border-color: @selected_bg_color;
@@ -539,7 +541,6 @@ radio + label
 {
     padding-left: 1ex;
 }
-
 /**********************************************/
 
 
@@ -730,7 +731,7 @@ statusbar *
     background-color: shade(@bg_color, 1.05);
 }
 
-.sidebar :hover
+.sidebar row:hover
 {
     background-color: @bg_color;
 }
