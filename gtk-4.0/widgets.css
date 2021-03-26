@@ -138,7 +138,6 @@ tooltip.background
 {
     background-color: @base_color;
 }
-
 /**********************************************/
 
 
@@ -158,6 +157,17 @@ row:nth-child(odd)
     background-color: shade(@base_color, 0.97);
 }
 
+row:selected
+{
+    font-style: italic;
+}
+
+row:selected:focus-within
+{
+    font-style: normal;
+}
+
+row:focus-visible *,
 row:selected *,
 row:selected:hover *
 {
@@ -355,6 +365,7 @@ button:disabled
 
 button:focus,
 button.toggle:focus > label,
+menubutton button.toggle:focus,
 check:focus + label,
 check:checked:focus + label,
 radio:focus + label,
@@ -402,7 +413,7 @@ spinbutton button:focus
     color: @fg_color;
 }
 
-/* Spinner code lifted from the GTK+ CSS overview */
+/* Spinner code lifted from the GTK+ 3 CSS overview */
 @keyframes spin
 {
     to
@@ -731,11 +742,6 @@ statusbar *
     background-color: shade(@bg_color, 1.05);
 }
 
-.sidebar row:hover
-{
-    background-color: @bg_color;
-}
-
 .sidebar.view :active
 {
     background-color: @selected_bg_color;
@@ -795,9 +801,14 @@ popover.menu modelbutton:selected:not(:hover) > :not(.menu)
     font-style: italic;
 }
 
-popover.menu modelbutton > accelerator
+popover.menu modelbutton > accelerator:dir(ltr)
 {
     margin-left: 8ex;
+}
+
+popover.menu modelbutton > accelerator:dir(rtl)
+{
+    margin-right: 2ex;
 }
 /**********************************************/
 
