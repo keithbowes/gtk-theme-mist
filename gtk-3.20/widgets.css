@@ -1,8 +1,11 @@
 /**********************************************/
 *
 {
-    -GtkToolItemGroup-expander-size: 9;
     -GtkExpander-expander-size: 9;
+    -GtkScrollbar-has-backward-stepper: true;
+    -GtkScrollbar-has-forward-stepper: true;
+    -GtkScrollbar-has-secondary-backward-stepper: false;
+    -GtkToolItemGroup-expander-size: 9;
     -GtkTreeView-expander-size: 9;
     padding: 0;
     color: @fg_color;
@@ -60,6 +63,13 @@ treeview.view:focus *
     background-color: @bg_color;
     border: none;
 }
+
+.dnd {
+	border-width: 1px;
+	border-style: solid;
+	border-color: @selected_bg_color;
+	border-radius: 0;
+}
 /**********************************************/
 
 
@@ -110,7 +120,6 @@ tooltip.background
 {
     background-color: @base_color;
 }
-
 /**********************************************/
 
 
@@ -278,6 +287,17 @@ button:not(.toggle).suggested-action:focus
     color: @question_fg_color;
 }
 
+button.link
+{
+    background-color: transparent;
+    border: 1px transparent inset;
+}
+
+button.link:hover
+{
+    border-color: @border_color;
+}
+
 button.text-button
 {
     border-width: 1px;
@@ -289,7 +309,8 @@ button:hover
     background-color: shade(@bg_color, 1.03);
 }
 
-button:active
+button:active,
+button:active:focus
 {
     background-color: shade(@bg_color, 0.9);
     border-bottom-color: @button_active_bottom_right_border_color;
@@ -311,6 +332,8 @@ button:disabled
 }
 
 button:focus,
+button.toggle:focus > label,
+menubutton button.toggle:focus,
 check:focus + label,
 check:checked:focus + label,
 radio:focus + label,
@@ -321,8 +344,7 @@ radio:checked:focus + label
 
 button.toggle
 {
-    border-style: outset;
-    border-width: 2px;
+    border: 2px @border_color outset;
 }
 
 button.toggle:checked
@@ -330,9 +352,9 @@ button.toggle:checked
     border-style: inset;
 }
 
-button.toggle:not(:focus)
+button.toggle > label
 {
-    border-color: @border_color;
+    border: 1px transparent solid;
 }
 
 spinbutton,
@@ -429,7 +451,7 @@ check:selected:focus
 radio:hover,
 check:hover,
 radio:hover:focus,
-.check:hover:focus
+check:hover:focus
 {
     background-color: shade(@base_color, 1.03);
     border-color: @selected_bg_color;
@@ -478,6 +500,19 @@ combobox button
 
 
 /**********************************************/
+levelbar > trough > block
+{
+    background-color: @selected_fg_color;
+    border: 1px @border_color ridge;
+    min-height: 5px;
+    min-width: 5px;
+}
+
+levelbar > trough > block.filled
+{
+    background-color: @selected_bg_color;
+}
+
 progressbar progress
 {
     background-color: @selected_bg_color;
@@ -497,6 +532,7 @@ progressbar > trough
 {
     background-color: @bg_color;
 }
+
 progressbar progress .row:selected
 {
     border-color: @fg_color;
@@ -545,6 +581,12 @@ arrow.top
 
 /**********************************************/
 /** configure tabs */
+frame,
+notebook
+{
+    border: 1px @border_color outset;
+}
+
 notebook > stack
 {
     padding: 4px;
@@ -668,7 +710,8 @@ menubar
     border-width: 0 0 1px 0;
 }
 
-menubar > menuitem:hover > :first-child
+menubar > menuitem:hover,
+menubar > menuitem:hover > label
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
@@ -685,6 +728,12 @@ menuitem
     border-width: 0;
     background-color: transparent;
     padding: 3px 7px 2px 7px;
+}
+
+menuitem:disabled,
+menuitem :disabled
+{
+    background-color: transparent;
 }
 
 menu > menuitem label
@@ -841,7 +890,7 @@ popover modelbutton:hover :not(check):not(radio)
 /* Visually draw attention to the focused item that's activated on Return. */
 popover modelbutton:focus :not(check):not(radio)
 {
-    background-color: mix(@bg_color, @selected_bg_color, 1.6);
+    background-color: @selected_bg_color1;
     color: @selected_fg_color;
     font-style: italic;
 }
@@ -860,7 +909,6 @@ expander arrow:checked
 {
     -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
 }
-
 /**********************************************/
 
 
@@ -892,18 +940,23 @@ infobar.error
 
 
 /**********************************************/
+button.link label,
 *:link
 {
-    color: blue;
+    border: 1px transparent solid;
+    color: @link_color;
 }
 
-*:link:hover
+button.link > label,
+*:link,
+*:visited
 {
-    color: red;
+    text-decoration: underline;
 }
+
 
 *:visited
 {
-    color: magenta;
+    color: @link_visited_color;
 }
 /**********************************************/

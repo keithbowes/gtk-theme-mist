@@ -1,17 +1,41 @@
 /**********************************************/
 *
 {
-    padding: 0;
-    color: @fg_color;
+    -gtk-icon-style: regular;
     border-color: @border_color;
     border-style: none;
     border-width: 1px;
+    color: @fg_color;
+    padding: 0;
+}
+
+:disabled
+{
+    background-color: @disabled_color;
+    border-color: @disabled_border_color;
+    color: mix(@fg_color, @base_color, 0.5);
+}
+
+:focus
+{
+    color: @border_color;
+}
+
+.background
+{
+    background-color: @bg_color;
+    border: none;
+}
+
+.view
+{
+    background-color: @base_color;
 }
 
 .view:selected,
 selection
 {
-    background-color: @selected_bg_color;
+    background-color: @selected_bg_color1;
     color: @fg_color;
 }
 
@@ -23,11 +47,6 @@ selection:focus
     color: @selected_fg_color;
 }
 
-*:focus
-{
-    color: @border_color;
-}
-
 .view:focus,
 entry:focus,
 label:focus,
@@ -36,27 +55,16 @@ text:focus
     color: @fg_color;
 }
 
-*:disabled
-{
-    background-color: @disabled_color;
-    border-color: @disabled_border_color;
-    color: mix(@fg_color, @base_color, 0.5);
-}
-
-.background
-{
-    background-color: @bg_color;
-    border: none;
+dnd {
+	border-width: 1px;
+	border-style: solid;
+	border-color: @selected_bg_color;
+	border-radius: 0;
 }
 /**********************************************/
 
 
 /**********************************************/
-headerbar
-{
-    background-color: @bg_color;
-}
-
 label,
 label:active,
 label:disabled,
@@ -134,14 +142,6 @@ tooltip.background
 
 
 /**********************************************/
-.view
-{
-    background-color: @base_color;
-}
-/**********************************************/
-
-
-/**********************************************/
 row
 {
     border-width: 0;
@@ -157,6 +157,11 @@ row:nth-child(odd)
     background-color: shade(@base_color, 0.97);
 }
 
+row:hover
+{
+    background-color: @trough_color;
+}
+
 row:selected
 {
     font-style: italic;
@@ -168,8 +173,7 @@ row:selected:focus-within
 }
 
 row:focus-visible *,
-row:selected *,
-row:selected:hover *
+row:selected *
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
@@ -198,14 +202,14 @@ trough > row:selected:focus
     border-color: @selected_fg_color;
 }
 
-paned separator
+paned > separator
 {
     background-color: @bg_color;
     border-color: @border_color;
     border-width: 2px;
 }
 
-paned separator:hover
+paned > separator:hover
 {
     background-color: shade(@base_color, 0.95);
 }
@@ -243,11 +247,15 @@ scale.vertical > trough
     padding: 7px 0;
 }
 
-scale > trough > slider
+scale > trough > fill,
+scale > trough > highlight
 {
     background-color: @selected_bg_color;
-    border-left-color: @base_color;
-    border-top-color: @base_color;
+}
+
+scale > trough > slider
+{
+    border-radius: 100%;
     border-style: solid;
     border-width: 1px;
     min-height: 10px;
@@ -271,14 +279,25 @@ scrolledwindow
 /**********************************************/
 switch
 {
-    background-color: transparent;
+    background-color: @trough_color;
     border-width: 1px;
+}
+
+switch *,
+switch:disabled *
+{
+    color: transparent;
+}
+
+switch:checked
+{
+    background-color: @selected_bg_color;
 }
 
 switch > slider
 {
-    background-color: @selected_bg_color;
-    border-style: outset;
+    border-radius: 100%;
+    border: 1px @border_color solid;
 }
 /**********************************************/
 
@@ -331,18 +350,13 @@ button:not(.toggle).suggested-action:focus
     color: @question_fg_color;
 }
 
-button.text-button
-{
-    border-width: 1px;
-    padding: 4px;
-}
-
 button:hover
 {
     background-color: shade(@bg_color, 1.03);
 }
 
-button:active
+button:active,
+button:active:focus
 {
     background-color: shade(@bg_color, 0.9);
     border-bottom-color: @button_active_bottom_right_border_color;
@@ -363,6 +377,23 @@ button:disabled
     color: mix(@fg_color, @base_color, 0.5);
 }
 
+button.link
+{
+    background-color: transparent;
+    border: 1px transparent inset;
+}
+
+button.link:hover
+{
+    border-color: @border_color;
+}
+
+button.text-button
+{
+    border-width: 1px;
+    padding: 4px;
+}
+
 button:focus,
 button.toggle:focus > label,
 menubutton button.toggle:focus,
@@ -376,8 +407,7 @@ radio:checked:focus + label
 
 button.toggle
 {
-    border-style: outset;
-    border-width: 1px;
+    border: 1px @border_color outset;
 }
 
 button.toggle:checked
@@ -385,16 +415,17 @@ button.toggle:checked
     border-style: inset;
 }
 
-button.toggle
-{
-    border-color: @border_color;
-}
-
 button.toggle > label
 {
+    border: 1px transparent solid;
+}
+
+menubutton.circular *,
+.circular
+{
     border-color: transparent;
-    border-style: solid;
-    border-width: 1px;
+    border-radius: 100%;
+    margin: 0.5px 2px;
 }
 
 spinbutton,
@@ -453,11 +484,6 @@ text.read-only
     background-color: shade(@base_color, 0.95);
 }
 
-entry progress
-{
-    background-color: shade(@selected_bg_color, 1.35);
-}
-
 entry text
 {
     border: none;
@@ -472,18 +498,6 @@ checkbutton:selected:focus,
 checkbutton:disabled
 {
     background-color: transparent;
-}
-
-radio,
-radio:checked,
-radio:selected,
-radio:selected:focus,
-radio.view:selected:focus
-{
-    background-color: @base_color;
-    border: 1px solid @border_color;
-    border-radius: 100%;
-    color: @selected_bg_color;
 }
 
 check,
@@ -507,6 +521,13 @@ check:checked:disabled
     -gtk-icon-source: url("../assets/check-disabled.svg");
 }
 
+check + label,
+radio + label
+{
+    padding-left: 1ex;
+}
+
+/* GTK 4 bug: radio has to be first */
 radio:indeterminate,
 check:indeterminate
 {
@@ -517,6 +538,18 @@ check:indeterminate:disabled,
 radio:indeterminate:disabled
 {
     -gtk-icon-source: url("../assets/mixed-disabled.svg");
+}
+
+radio,
+radio:checked,
+radio:selected,
+radio:selected:focus,
+radio.view:selected:focus
+{
+    background-color: @base_color;
+    border: 1px solid @border_color;
+    border-radius: 100%;
+    color: @selected_bg_color;
 }
 
 radio:hover,
@@ -530,8 +563,10 @@ check:hover:focus
 
 radio:disabled,
 radio:disabled:selected,
+radio.view:disabled:selected,
 check:disabled,
-check:disabled:selected
+check:disabled:selected,
+check.view:disabled:selected
 {
     background-color: shade(@base_color, 0.95);
     color: mix(@fg_color, @base_color, 0.5);
@@ -545,12 +580,6 @@ radio:checked
 radio:checked:disabled
 {
     -gtk-icon-source: url("../assets/radio-disabled.svg");
-}
-
-check + label,
-radio + label
-{
-    padding-left: 1ex;
 }
 /**********************************************/
 
@@ -581,6 +610,25 @@ combobox cellview:hover *
 
 
 /**********************************************/
+levelbar > trough > block
+{
+    background-color: @base_color;
+    border: 1px @border_color ridge;
+    min-height: 5px;
+    min-width: 5px;
+}
+
+levelbar > trough > block.filled
+{
+    background-color: shade(@selected_bg_color, 1.35);
+}
+
+progress progress
+{
+    background-color: shade(@selected_bg_color, 1.35);
+    min-height: 1px;
+}
+
 progressbar progress
 {
     background-color: @selected_bg_color;
@@ -594,11 +642,6 @@ progressbar > text
 {
     background-color: @bg_color;
     border: 0;
-}
-
-progressbar > trough
-{
-    background-color: @bg_color;
 }
 /**********************************************/
 
@@ -633,24 +676,27 @@ arrow.top
 
 /**********************************************/
 /** configure tabs */
-notebook > stack
+frame,
+.frame
 {
-    padding: 4px;
-    background-color: @bg_color;
+    border: 1px @border_color solid;
+}
 
-    border-color: @base_color;
-    border-right-color: @border_color;
-    border-bottom-color: @border_color;
-    border-width: 1px;
+frame > label
+{
+    margin: 4px;
+}
+
+notebook
+{
+    border: 1px @border_color outset;
 }
 
 notebook > header > tabs > tab
 {
-    padding: 4px;
-    border-style: outset;
-    border-width: 1px;
-    border-color: @trough_color;
     background-color: @trough_color;
+    border: 1px @trough_color outset;
+    padding: 4px;
 }
 
 notebook > header > tabs > tab:checked
@@ -691,10 +737,45 @@ notebook > header.right > tabs > tab
     margin-left: -1px;
     border-left-width: 0px;
 }
+
+notebook > stack
+{
+    background-color: @bg_color;
+    border-color: @base_color;
+    border-bottom-color: @border_color;
+    border-right-color: @border_color;
+    border-width: 1px;
+    padding: 4px;
+}
 /**********************************************/
 
 
 /**********************************************/
+window:not(.toplevel)
+{
+    border: 1px @fg_color solid;
+}
+
+/* CSD titlebars, based on GNOME's Clearlooks */
+window.csd .titlebar,
+window.csd-solid .titlebar
+{
+    background-image: linear-gradient(to bottom, #589bda, #3c7cb7);
+    border: 1px #7cb6ec solid;
+}
+
+window.csd .titlebar .title,
+window.csd-solid .titlebar .title
+{
+    color: @base_color;
+}
+
+window.ssd .titlebar
+{
+    border: 1px @border_color solid;
+    padding: 2ex;
+}
+
 window.assistant .sidebar
 {
     padding-top: 2px;
@@ -750,32 +831,43 @@ statusbar *
 
 
 /**********************************************/
-popover > :first-child
+box.toolbar
 {
-    border-width: 1px;
+    border-width: 0 0 1px 0;
+    padding: 2px 0;
 }
 
-menubar > item
+box.toolbar button.image-button:not(.toggle)
 {
-    border: 0;
+    border: none;
+}
+/**********************************************/
+
+
+/**********************************************/
+menubar
+{
+    border-width: 0 0 1px 0;
 }
 
-menubar > item:selected,
-menubar > item:selected > label
+menubar > item:hover,
+menubar > item:hover > label
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
 
-menubar > item,
-menubar > item popover.menu
+menubar > item
 {
+    border-width: 0;
+    background-color: @bg_color;
     padding: 3px 7px 2px 7px;
 }
 
-menubar > item popover.menu
+menubar > item:disabled,
+menubar > item :disabled
 {
-    border: @trough_color 1px solid;
+    background-color: transparent;
 }
 
 menubar > item check,
@@ -784,31 +876,73 @@ menubar > item radio
     margin: 1px 5px 1px 0;
 }
 
-popover.menu modelbutton:hover,
-popover.menu modelbutton:selected
+menubar > item > popover.menu
 {
-    background-color: @selected_bg_color;
+    border: 1px @border_color solid;
 }
 
-popover.menu modelbutton:hover > :not(.menu),
-popover.menu modelbutton:selected > :not(.menu)
+popover > :first-child
 {
+    border-width: 1px;
+}
+
+popover.menu modelbutton
+{
+    padding: 0.5ex 1ex;
+}
+
+popover.menu modelbutton,
+popover.menu modelbutton > .menu
+{
+    background-color: @bg_color;
+    color: @fg_color;
+}
+
+popover.menu modelbutton:focus:not(:hover):not(:selected),
+popover.menu modelbutton:focus:not(:hover):not(:selected) > :not(.menu)
+{
+    background-color: @selected_bg_color1;
     color: @selected_fg_color;
 }
 
-popover.menu modelbutton:selected:not(:hover) > :not(.menu)
+popover.menu modelbutton:hover,
+popover.menu modelbutton:hover accelerator,
+popover.menu modelbutton:hover arrow,
+popover.menu modelbutton:hover label,
+popover.menu modelbutton:selected,
+popover.menu modelbutton:selected accelerator,
+popover.menu modelbutton:selected arrow,
+popover.menu modelbutton:selected label
 {
-    font-style: italic;
+    background-color: @selected_bg_color;
+    color: @selected_fg_color;
+}
+
+/* Don't highlight submenus of hovered items */
+popover.menu modelbutton:hover .menu accelerator,
+popover.menu modelbutton:hover .menu arrow,
+popover.menu modelbutton:hover .menu label,
+popover.menu modelbutton:selected .menu accelerator,
+popover.menu modelbutton:selected .menu arrow,
+popover.menu modelbutton:selected .menu label
+{
+    background-color: transparent;
+    color: inherit;
 }
 
 popover.menu modelbutton > accelerator:dir(ltr)
 {
-    margin-left: 8ex;
+    padding-left: 8ex;
 }
 
 popover.menu modelbutton > accelerator:dir(rtl)
 {
-    margin-right: 2ex;
+    padding-right: 8ex;
+}
+
+popover.menu separator
+{
+    margin: 0.5ex 0;
 }
 /**********************************************/
 
@@ -819,7 +953,7 @@ expander,
 {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
     border-color: @fg_color;
-    min-height: 1em;
+    min-height: 1ex;
 }
 
 expander:dir(rtl),
@@ -857,6 +991,18 @@ expander:checked,
     color: @warning_bg_color;
 }
 
+infobar.error
+{
+    background-color: @error_bg_color;
+    color: @error_fg_color;
+}
+
+infobar.question
+{
+    background-color: @question_bg_color;
+    color: @question_fg_color;
+}
+
 infobar.info
 {
     background-color: @info_bg_color;
@@ -868,34 +1014,45 @@ infobar.warning
     background-color: @warning_bg_color;
     color: @warning_fg_color;
 }
+/**********************************************/
 
-infobar.question
-{
-    background-color: @question_bg_color;
-    color: @question_fg_color;
-}
 
-infobar.error
+/**********************************************/
+video
 {
-    background-color: @error_bg_color;
-    color: @error_fg_color;
+    background-color: black;
+    min-height: 64px;
+    min-width: 64px;
 }
 /**********************************************/
 
 
 /**********************************************/
-*:link
+button.link > label,
+:link
 {
-    color: blue;
+    border: 1px transparent solid;
+    color: @link_color;
 }
 
-*:link:hover
+button.link > label,
+:link,
+:visited
 {
-    color: red;
+    text-decoration: underline;
 }
 
-*:visited
+button.link:active > label,
+button.link:hover > label,
+button.link:visited:active > label,
+:link:active,
+:visited:active
 {
-    color: magenta;
+    color: @link_active_color;
+}
+
+:visited
+{
+    color: @link_visited_color;
 }
 /**********************************************/

@@ -3,6 +3,7 @@
 @define-color fg_color #000;
 
 @define-color selected_bg_color #729fcf;
+@define-color selected_bg_color1 #5f8fc2;
 @define-color selected_fg_color @base_color;
 
 @define-color disabled_color shade(@bg_color, 0.95);
@@ -20,6 +21,11 @@
 @define-color button_focused_border_color #373737;
 @define-color disabled_border_color #9c9c9c;
 @define-color tooltip_border_color @fg_color;
+
+/* From HTML5 */
+@define-color link_active_color #ff0000;
+@define-color link_color #0000ee;
+@define-color link_visited_color #551a8b;
 
 @define-color info_fg_color rgb(181, 171, 156);
 @define-color info_bg_color rgb(252, 252, 189);
