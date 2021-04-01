@@ -9,8 +9,8 @@ License    |GNU GPLv2 or later
 
 ### assets
 
-    Images used.  Currently only for GTK 4 check and radio buttons, as icon
-    themes can't be used for them anymore.
+Images used.  Currently only for GTK 4 check and radio buttons, as icon themes
+can't be used for them anymore.
 
 ### gtk-2.0
 
