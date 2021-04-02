@@ -427,6 +427,18 @@ checkbutton:disabled
     background-color: transparent;
 }
 
+checkbutton > label,
+radiobutton > label
+{
+    border: 1px transparent solid;
+}
+
+checkbutton:focus > label,
+radiobutton:focus > label
+{
+    border-color: @border_color;
+}
+
 radio,
 radio:checked,
 radio:selected,

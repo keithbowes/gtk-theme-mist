@@ -255,6 +255,7 @@ scale > trough > highlight
 
 scale > trough > slider
 {
+    background-color: @base_color;
     border-radius: 100%;
     border-style: solid;
     border-width: 1px;
@@ -296,6 +297,7 @@ switch:checked
 
 switch > slider
 {
+    background-color: @base_color;
     border-radius: 100%;
     border: 1px @border_color solid;
 }
@@ -500,6 +502,16 @@ checkbutton:disabled
     background-color: transparent;
 }
 
+checkbutton > label
+{
+    border: 1px transparent solid;
+}
+
+checkbutton:focus > label
+{
+    border-color: @border_color;
+}
+
 check,
 check:checked,
 check:selected,
@@ -524,7 +536,7 @@ check:checked:disabled
 check + label,
 radio + label
 {
-    padding-left: 0.5em;
+    margin-left: 0.5em;
 }
 
 /* GTK 4 bug: radio has to be first */
