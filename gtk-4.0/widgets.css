@@ -524,7 +524,7 @@ check:checked:disabled
 check + label,
 radio + label
 {
-    padding-left: 1ex;
+    padding-left: 0.5em;
 }
 
 /* GTK 4 bug: radio has to be first */
@@ -773,7 +773,7 @@ window.csd-solid .titlebar .title
 window.ssd .titlebar
 {
     border: 1px @border_color solid;
-    padding: 2ex;
+    padding: 2ex 1em;
 }
 
 window.assistant .sidebar
@@ -888,7 +888,7 @@ popover > :first-child
 
 popover.menu modelbutton
 {
-    padding: 0.5ex 1ex;
+    padding: 0.3ex 0.5em;
 }
 
 popover.menu modelbutton,
@@ -932,17 +932,17 @@ popover.menu modelbutton:selected .menu label
 
 popover.menu modelbutton > accelerator:dir(ltr)
 {
-    padding-left: 8ex;
+    margin-left: 2em;
 }
 
 popover.menu modelbutton > accelerator:dir(rtl)
 {
-    padding-right: 8ex;
+    margin-right: 2em;
 }
 
 popover.menu separator
 {
-    margin: 0.5ex 0;
+    margin: 0.2ex 0;
 }
 /**********************************************/
 
