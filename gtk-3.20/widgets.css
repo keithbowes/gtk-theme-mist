@@ -65,10 +65,10 @@ treeview.view:focus *
 }
 
 .dnd {
-	border-width: 1px;
-	border-style: solid;
-	border-color: @selected_bg_color;
-	border-radius: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: @selected_bg_color;
+    border-radius: 0;
 }
 /**********************************************/
 
@@ -197,6 +197,11 @@ scale > contents > trough
     border-bottom-color: @base_color;
 }
 
+scale:focus > contents > trough
+{
+    border-style: inset;
+}
+
 scale.horizontal > contents > trough
 {
     padding: 0 7px;
@@ -221,6 +226,20 @@ scale > contents > trough > slider
 scrolledwindow
 {
     border: none;
+}
+
+window .titlebar
+{
+    background-image: linear-gradient(to bottom, @base_color, @bg_color);
+    border: 1px @border_color outset;
+    color: @fg_color;
+    padding: 7px;
+}
+
+window.ssd .titlebar
+{
+    background-image: none;
+    border-style: solid;
 }
 /**********************************************/
 
@@ -596,7 +615,7 @@ arrow.top
 frame,
 notebook
 {
-    border: 1px @border_color outset;
+    border: 1px @border_color ridge;
 }
 
 notebook > stack
@@ -683,7 +702,6 @@ assistant .title
 
 
 /**********************************************/
-
 statusbar *
 {
     border: none;
@@ -694,6 +712,7 @@ popover > :first-child
 {
     border-width: 1px;
 }
+/**********************************************/
 
 
 /**********************************************/
@@ -714,6 +733,7 @@ statusbar *
 {
     border: none;
 }
+/**********************************************/
 
 
 /**********************************************/
@@ -829,6 +849,7 @@ menu > menuitem radio:checked
 /**********************************************/
 
 
+/**********************************************/
 scrollbar button,
 scrollbar button:hover,
 scrollbar button:active,
@@ -858,6 +879,7 @@ scrollbar.vertical button.up
 {
     -gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
 }
+/**********************************************/
 
 
 /**********************************************/
@@ -869,7 +891,12 @@ toolbar
 
 toolbar button.image-button:not(.toggle)
 {
-    border: none;
+    border: 1px transparent solid;
+}
+
+toolbar button.image-button:not(.toggle):focus
+{
+    border-color: @border_color;
 }
 /**********************************************/
 
@@ -893,6 +920,7 @@ toolbar button.image-button:not(.toggle)
 /**********************************************/
 
 
+/**********************************************/
 popover modelbutton:hover :not(check):not(radio)
 {
     background-color: @selected_bg_color;

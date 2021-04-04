@@ -2,9 +2,7 @@
 *
 {
     -gtk-icon-style: regular;
-    border-color: @border_color;
-    border-style: none;
-    border-width: 1px;
+    border: 1px @border_color none;
     color: @fg_color;
     padding: 0;
 }
@@ -32,6 +30,11 @@
     background-color: @base_color;
 }
 
+.view:focus:focus-visible
+{
+    outline: 1px @border_color solid;
+}
+
 .view:selected,
 selection
 {
@@ -56,21 +59,19 @@ text:focus
 }
 
 dnd {
-	border-width: 1px;
-	border-style: solid;
-	border-color: @selected_bg_color;
-	border-radius: 0;
+    border: 1px @selected_bug_color solid;
+    border-radius: 0;
 }
 /**********************************************/
 
 
 /**********************************************/
-label,
-label:active,
-label:disabled,
 image,
 image:active,
-image:disabled
+image:disabled,
+label,
+label:active,
+label:disabled
 {
     background-color: transparent;
     border-width: 0;
@@ -202,18 +203,6 @@ trough > row:selected:focus
     border-color: @selected_fg_color;
 }
 
-paned > separator
-{
-    background-color: @bg_color;
-    border-color: @border_color;
-    border-width: 2px;
-}
-
-paned > separator:hover
-{
-    background-color: shade(@base_color, 0.95);
-}
-
 scrollbar slider
 {
     background-color: @scrollbar_slider_color;
@@ -231,10 +220,19 @@ scrollbar slider:hover
 
 scale > trough
 {
-    border-width: 1px;
-    border-color: @border_color1;
-    border-right-color: @base_color;
+    border: 1px transparent inset;
     border-bottom-color: @base_color;
+    border-right-color: @base_color;
+}
+
+scale:disabled > trough
+{
+    border: none;
+}
+
+scale:focus > trough
+{
+    border-color: @border_color1;
 }
 
 scale.horizontal > trough
@@ -274,6 +272,11 @@ scrolledwindow
 {
     border: none;
 }
+
+scrolledwindow:focus
+{
+    border: 3px @fg_color ridge;
+}
 /**********************************************/
 
 
@@ -281,7 +284,7 @@ scrolledwindow
 switch
 {
     background-color: @trough_color;
-    border-width: 1px;
+    border: 1px transparent solid;
 }
 
 switch *,
@@ -295,16 +298,28 @@ switch:checked
     background-color: @selected_bg_color;
 }
 
+switch:checked:focus
+{
+    border-color: @fg_color;
+}
+
+switch:disabled
+{
+    border: none;
+}
+
+switch:focus
+{
+    border-color: @border_color;
+}
+
 switch > slider
 {
     background-color: @base_color;
     border-radius: 100%;
     border: 1px @border_color solid;
 }
-/**********************************************/
 
-
-/**********************************************/
 slider
 {
     border-width: 1px;
@@ -314,6 +329,18 @@ slider
 
 
 /**********************************************/
+paned > separator
+{
+    background-color: @bg_color;
+    border-color: @border_color;
+    border-width: 2px;
+}
+
+paned > separator:hover
+{
+    background-color: shade(@base_color, 0.95);
+}
+
 separator
 {
     background-color: @border_color;
@@ -361,10 +388,8 @@ button:active,
 button:active:focus
 {
     background-color: shade(@bg_color, 0.9);
-    border-bottom-color: @button_active_bottom_right_border_color;
-    border-left-color: @button_active_top_left_border_color;
-    border-right-color: @button_active_bottom_right_border_color;
-    border-top-color: @button_active_top_left_border_color;
+    border-color: @button_active_top_left_border_color @button_active_bottom_right_border_color
+                  @button_active_bottom_right_border_color @button_active_top_left_border_color;
 }
 
 button:active:hover
@@ -379,23 +404,6 @@ button:disabled
     color: mix(@fg_color, @base_color, 0.5);
 }
 
-button.link
-{
-    background-color: transparent;
-    border: 1px transparent inset;
-}
-
-button.link:hover
-{
-    border-color: @border_color;
-}
-
-button.text-button
-{
-    border-width: 1px;
-    padding: 4px;
-}
-
 button:focus,
 button.toggle:focus > label,
 menubutton button.toggle:focus,
@@ -404,7 +412,32 @@ check:checked:focus + label,
 radio:focus + label,
 radio:checked:focus + label
 {
-    border-color: @button_focused_border_color;
+    border-color: @border_color;
+}
+
+button.circular,
+menubutton.circular
+{
+    border-color: transparent;
+    border-radius: 100%;
+    margin: 0.5px 2px;
+}
+
+button.link > label
+{
+    background-color: transparent;
+    border: 1px transparent inset;
+}
+
+button.link:hover > label
+{
+    border: 1px @border_color inset;
+}
+
+button.text-button
+{
+    border-width: 1px;
+    padding: 4px;
 }
 
 button.toggle
@@ -420,14 +453,6 @@ button.toggle:checked
 button.toggle > label
 {
     border: 1px transparent solid;
-}
-
-menubutton.circular *,
-.circular
-{
-    border-color: transparent;
-    border-radius: 100%;
-    margin: 0.5px 2px;
 }
 
 spinbutton,
@@ -564,21 +589,21 @@ radio.view:selected:focus
     color: @selected_bg_color;
 }
 
-radio:hover,
 check:hover,
-radio:hover:focus,
-check:hover:focus
+check:hover:focus,
+radio:hover,
+radio:hover:focus
 {
     background-color: shade(@base_color, 1.03);
     border-color: @selected_bg_color;
 }
 
-radio:disabled,
-radio:disabled:selected,
-radio.view:disabled:selected,
 check:disabled,
 check:disabled:selected,
-check.view:disabled:selected
+check.view:disabled:selected,
+radio:disabled,
+radio:disabled:selected,
+radio.view:disabled:selected
 {
     background-color: shade(@base_color, 0.95);
     color: mix(@fg_color, @base_color, 0.5);
@@ -613,10 +638,17 @@ combobox button
     padding: 0;
 }
 
-combobox cellview:hover *
+combobox box :selected cellview
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
+}
+
+dropdown:not(:disabled),
+dropdown:not(:disabled) label
+{
+    background-color: @bg_color;
+    color: @fg_color;
 }
 /**********************************************/
 
@@ -715,15 +747,10 @@ notebook > header > tabs > tab:checked
 {
     background-color: @bg_color;
 }
-notebook:focus > header > tabs > tab > label
-{
-    border-color: @border_color;
-    border-width: 1px;
-}
 
 notebook:focus > header > tabs > tab:checked > label
 {
-    border-style: solid;
+    outline: 1px @border_color solid;
 }
 
 notebook > header.top > tabs > tab
@@ -769,15 +796,13 @@ window:not(.toplevel)
 }
 
 /* CSD titlebars, based on GNOME's Clearlooks */
-window.csd .titlebar,
-window.csd-solid .titlebar
+window.csd .titlebar
 {
     background-image: linear-gradient(to bottom, #589bda, #3c7cb7);
     border: 1px #7cb6ec solid;
 }
 
-window.csd .titlebar .title,
-window.csd-solid .titlebar .title
+window.csd .titlebar .title
 {
     color: @base_color;
 }
@@ -785,7 +810,7 @@ window.csd-solid .titlebar .title
 window.ssd .titlebar
 {
     border: 1px @border_color solid;
-    padding: 2ex 1em;
+    padding: 7px;
 }
 
 window.assistant .sidebar
@@ -827,6 +852,7 @@ statusbar *
 {
     border: none;
 }
+/**********************************************/
 
 
 /**********************************************/
@@ -849,17 +875,33 @@ box.toolbar
     padding: 2px 0;
 }
 
-box.toolbar button.image-button:not(.toggle)
+box.toolbar > button.image-button:not(.toggle)
 {
-    border: none;
+    border: 1px transparent solid;
+}
+
+box.toolbar > button.image-button:not(.toggle):hover
+{
+    border: 1px @border_color outset;
+}
+
+box.toolbar > button.image-button:not(.toggle):focus:focus-visible
+{
+    border-color: @border_color;
 }
 /**********************************************/
 
 
 /**********************************************/
-menubar
+menubar > item
 {
-    border-width: 0 0 1px 0;
+    background-color: @bg_color;
+    padding: 3px 7px 2px 7px;
+}
+
+menubar > item :disabled
+{
+    background-color: transparent;
 }
 
 menubar > item:hover,
@@ -869,28 +911,10 @@ menubar > item:hover > label
     color: @selected_fg_color;
 }
 
-menubar > item
-{
-    border-width: 0;
-    background-color: @bg_color;
-    padding: 3px 7px 2px 7px;
-}
-
-menubar > item:disabled,
-menubar > item :disabled
-{
-    background-color: transparent;
-}
-
 menubar > item check,
 menubar > item radio
 {
     margin: 1px 5px 1px 0;
-}
-
-menubar > item > popover.menu
-{
-    border: 1px @border_color solid;
 }
 
 popover > :first-child
@@ -898,48 +922,32 @@ popover > :first-child
     border-width: 1px;
 }
 
-popover.menu modelbutton
+popover.menu
 {
-    padding: 0.3ex 0.5em;
+    border: 1px @border_color solid;
 }
 
-popover.menu modelbutton,
-popover.menu modelbutton > .menu
+popover.menu modelbutton
 {
     background-color: @bg_color;
     color: @fg_color;
+    padding: 0.3ex 0.5em;
 }
 
-popover.menu modelbutton:focus:not(:hover):not(:selected),
-popover.menu modelbutton:focus:not(:hover):not(:selected) > :not(.menu)
+popover.menu modelbutton:focus:not(:hover),
+popover.menu modelbutton:focus:not(:hover) > :not(.menu)
 {
     background-color: @selected_bg_color1;
     color: @selected_fg_color;
 }
 
 popover.menu modelbutton:hover,
-popover.menu modelbutton:hover accelerator,
-popover.menu modelbutton:hover arrow,
-popover.menu modelbutton:hover label,
+popover.menu modelbutton:hover > :not(.menu),
 popover.menu modelbutton:selected,
-popover.menu modelbutton:selected accelerator,
-popover.menu modelbutton:selected arrow,
-popover.menu modelbutton:selected label
+popover.menu modelbutton:selected > :not(.menu)
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
-}
-
-/* Don't highlight submenus of hovered items */
-popover.menu modelbutton:hover .menu accelerator,
-popover.menu modelbutton:hover .menu arrow,
-popover.menu modelbutton:hover .menu label,
-popover.menu modelbutton:selected .menu accelerator,
-popover.menu modelbutton:selected .menu arrow,
-popover.menu modelbutton:selected .menu label
-{
-    background-color: transparent;
-    color: inherit;
 }
 
 popover.menu modelbutton > accelerator:dir(ltr)
@@ -960,8 +968,8 @@ popover.menu separator
 
 
 /**********************************************/
-expander,
-.expander
+expander:dir(ltr),
+.expander:dir(ltr)
 {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
     border-color: @fg_color;
