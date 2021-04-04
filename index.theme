@@ -1,0 +1,19 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Mist
+# Hoffentlich glaubst du, dass dieses Theme kein Mist ist.
+Name[de]=Nebel
+# Kongrueco kun la dua regulo.
+Name[eo]=Misto
+Comment=A continuation of GTK+ 2's included Mist theme.
+Comment[de]=Eine Fortsetzung des mitgelieferten GTK+ 2 Themes Nebel.
+Comment[es]=Una continuación del incluido tema Mist de GTK+ 2.
+Comment[eo]=Daŭrigo de la interna etoso Misto de GTK+ 2.
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Mist
+IconTheme=oxygen
+CursorTheme=breeze
+CursorSize=12
+ApplicationFont=sans 10
