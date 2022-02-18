@@ -266,7 +266,8 @@ window.ssd .titlebar
 
 
 /**********************************************/
-switch:checked
+switch slider,
+switch:checked slider
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
