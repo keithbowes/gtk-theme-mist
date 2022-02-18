@@ -429,11 +429,6 @@ entry progress
 {
     background-color: shade(@selected_bg_color, 1.35);
 }
-
-entry
-{
-    border: none;
-}
 /**********************************************/
 
 
@@ -702,20 +697,6 @@ assistant .title
 
 
 /**********************************************/
-statusbar *
-{
-    border: none;
-}
-
-
-popover > :first-child
-{
-    border-width: 1px;
-}
-/**********************************************/
-
-
-/**********************************************/
 textview > :first-child
 {
     background-color: inherit;
@@ -921,6 +902,11 @@ toolbar button.image-button:not(.toggle):focus
 
 
 /**********************************************/
+popover > :first-child
+{
+    border-width: 1px;
+}
+
 popover modelbutton:hover :not(check):not(radio)
 {
     background-color: @selected_bg_color;
@@ -934,6 +920,10 @@ popover modelbutton:focus :not(check):not(radio)
     color: @selected_fg_color;
     font-style: italic;
 }
+/**********************************************/
+
+
+/**********************************************/
 
 expander arrow
 {

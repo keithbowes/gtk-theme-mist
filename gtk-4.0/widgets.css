@@ -284,23 +284,12 @@ scrolledwindow:focus
 switch
 {
     background-color: @trough_color;
-    border: 1px transparent solid;
-}
-
-switch *,
-switch:disabled *
-{
-    color: transparent;
+    border: 1px @border_color outset;
 }
 
 switch:checked
 {
-    background-color: @selected_bg_color;
-}
-
-switch:checked:focus
-{
-    border-color: @fg_color;
+    border-style: inset;
 }
 
 switch:disabled
@@ -310,14 +299,18 @@ switch:disabled
 
 switch:focus
 {
+    background-color: shade(@trough_color, 1.03);
     border-color: @border_color;
+}
+
+switch:hover
+{
+    background-color: shade(@bg_color, 1.03);
 }
 
 switch > slider
 {
-    background-color: @base_color;
-    border-radius: 100%;
-    border: 1px @border_color solid;
+    background-color: transparent;
 }
 
 slider
@@ -379,11 +372,6 @@ button:not(.toggle).suggested-action:focus
     color: @question_fg_color;
 }
 
-button:hover
-{
-    background-color: shade(@bg_color, 1.03);
-}
-
 button:active,
 button:active:focus
 {
@@ -392,7 +380,8 @@ button:active:focus
                   @button_active_bottom_right_border_color @button_active_top_left_border_color;
 }
 
-button:active:hover
+button:active:hover,
+button:hover
 {
     background-color: shade(@bg_color, 1.03);
 }
@@ -895,7 +884,6 @@ box.toolbar > button.image-button:not(.toggle):focus:focus-visible
 /**********************************************/
 menubar > item
 {
-    background-color: @bg_color;
     padding: 3px 7px 2px 7px;
 }
 
@@ -929,8 +917,6 @@ popover.menu
 
 popover.menu modelbutton
 {
-    background-color: @bg_color;
-    color: @fg_color;
     padding: 0.3ex 0.5em;
 }
 
@@ -942,9 +928,7 @@ popover.menu modelbutton:focus:not(:hover) > :not(.menu)
 }
 
 popover.menu modelbutton:hover,
-popover.menu modelbutton:hover > :not(.menu),
-popover.menu modelbutton:selected,
-popover.menu modelbutton:selected > :not(.menu)
+popover.menu modelbutton:hover > :not(.menu)
 {
     background-color: @selected_bg_color;
     color: @selected_fg_color;
