@@ -781,7 +781,7 @@ notebook > stack
 /**********************************************/
 window:not(.toplevel)
 {
-    border: 1px @fg_color solid;
+    border: 1px solid #404040;
 }
 
 /* CSD titlebars, based on GNOME's Clearlooks */

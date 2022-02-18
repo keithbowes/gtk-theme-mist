@@ -228,6 +228,27 @@ scrolledwindow
     border: none;
 }
 
+window
+{
+    color: @fg_color;
+    background-color: @bg_color;
+}
+
+window:backdrop
+{
+    color: @fg_color;
+}
+
+window.csd .titlebar .titlebutton,
+window.csd .titlebar .button {
+    -gtk-icon-shadow: none;
+    padding: 5px;
+}
+
+window.csd decoration {
+	outline: 1px solid #404040;
+}
+
 window .titlebar
 {
     background-image: linear-gradient(to bottom, @base_color, @bg_color);

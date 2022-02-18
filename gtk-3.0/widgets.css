@@ -21,6 +21,34 @@
     border-style: solid;
 }
 
+/* CSD fixes by ake */
+GtkWindow {
+    color: @fg_color;
+    background-color: @bg_color;
+}
+
+GtkPaned {
+    background-color: @bg_color;
+}
+
+GtkWindow:backdrop {
+    color: @fg_color;
+}
+
+.titlebar {
+	padding: 4px;
+	background-color: @bg_color;
+}
+
+.titlebar .titlebutton, .titlebar .button {
+    padding: 5px;
+    icon-shadow: none;
+}
+
+.window-frame {
+	outline: 1px solid #404040;
+}
+
 *:hover
 {
     background-color: shade(@bg_color, 1.03);
