@@ -284,12 +284,12 @@ scrolledwindow:focus
 switch
 {
     background-color: @trough_color;
-    border: 1px @border_color outset;
+    outline: 1px @border_color outset;
 }
 
 switch:checked
 {
-    border-style: inset;
+    outline-style: inset;
 }
 
 switch:disabled
@@ -310,7 +310,7 @@ switch:hover
 
 switch > slider
 {
-    background-color: transparent;
+    background-color: mix(@bg_color, @selected_bg_color, 1.35);
 }
 
 slider
