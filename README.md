@@ -16,7 +16,7 @@ can't be used for them anymore.
 
   - theme for GTK+ 2
   - it should work in GTK+ 2.22 and later (and perhaps earlier)
-  - uses [https://wiki.gnome.org/Attic/GnomeArt/Tutorials/GtkEngines/MistEngine](Mist engine)
+  - uses [Mist engine](https://wiki.gnome.org/Attic/GnomeArt/Tutorials/GtkEngines/MistEngine)
   - taken from Arch Linux gtk-engines 2.21.0-1 package
   - no functional changes so far (just reformatted to sane style)
 
