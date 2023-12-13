@@ -20,10 +20,9 @@ can't be used for them anymore.
   - taken from Arch Linux gtk-engines 2.21.0-1 package
   - no functional changes so far (just reformatted to sane style)
 
-### gtk-3.0
+### gtk-3.8
 
-  - theme for GTK+ 3.8 to 3.18 (though it probably also works in 3.0 to 3.6, as
-    GTK+ 3 theming wasn't changed much until 3.20)
+  - theme for GTK+ 3.8 to 3.18
   - uses default [gtk3 engine](https://developer.gnome.org/gtk3/stable/GtkThemingEngine.html#GtkThemingEngine.description)
   - based on [Mist-Redmond 1.2
     (gtk3.8-theme\_Mist-Redmond)](http://gnome-look.org/content/show.php?content=155580)
