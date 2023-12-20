@@ -632,13 +632,6 @@ combobox box :selected cellview
     background-color: @selected_bg_color;
     color: @selected_fg_color;
 }
-
-dropdown:not(:disabled),
-dropdown:not(:disabled) label
-{
-    background-color: @bg_color;
-    color: @fg_color;
-}
 /**********************************************/
 
 
