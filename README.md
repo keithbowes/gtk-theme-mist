@@ -25,7 +25,7 @@ can't be used for them anymore.
   - theme for GTK+ 3.8 to 3.18
   - uses default [gtk3 engine](https://developer.gnome.org/gtk3/stable/GtkThemingEngine.html#GtkThemingEngine.description)
   - based on [Mist-Redmond 1.2
-    (gtk3.8-theme\_Mist-Redmond)](http://gnome-look.org/content/show.php?content=155580)
+    (gtk3.8-theme\_Mist-Redmond)](https://www.gnome-look.org/p/1013685)
   - goal is to match gtk2 version as closely as possible
   - incomplete
   - no longer maintained
