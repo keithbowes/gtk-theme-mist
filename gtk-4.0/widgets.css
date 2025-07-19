@@ -218,9 +218,8 @@ scrollbar slider:hover
     background-color: @scrollbar_slider_hover_color;
 }
 
-scale > trough
-{
-    border: 1px transparent inset;
+scale {
+    border: 1px @border_color solid;
     border-bottom-color: @base_color;
     border-right-color: @base_color;
 }
@@ -276,6 +275,14 @@ scrolledwindow
 scrolledwindow:focus
 {
     border: 3px @fg_color ridge;
+}
+
+calendar.view grid label.day-name,
+calendar.view grid label.today,
+calendar.view grid label.week-number
+{
+    background-color: @selected_bg_color;
+    color: @text_color;
 }
 /**********************************************/
 
@@ -553,9 +560,8 @@ radio + label
     margin-left: 0.5em;
 }
 
-/* GTK 4 bug: radio has to be first */
-radio:indeterminate,
-check:indeterminate
+check:indeterminate,
+radio:indeterminate
 {
     -gtk-icon-source: url("../assets/mixed.svg");
 }

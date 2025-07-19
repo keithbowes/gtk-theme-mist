@@ -189,6 +189,10 @@ scrollbar slider:hover
     background-color: @scrollbar_slider_hover_color;
 }
 
+scale {
+    border: 1px @border_color solid;
+}
+
 scale > contents > trough
 {
     border-width: 1px;
@@ -216,6 +220,7 @@ scale > contents > trough > slider
 {
     background-color: @bg_color;
     border-left-color: @base_color;
+    border-style: solid;
     border-top-color: @base_color;
     border-width: 1px;
     padding: 1px;
@@ -735,6 +740,25 @@ colorswatch
 statusbar *
 {
     border: none;
+}
+/**********************************************/
+
+
+/**********************************************/
+list row {
+    color: @fg_color;
+}
+
+list row:nth-child(odd) {
+    background-color: shade(@bg_color, 0.95);
+}
+
+list row:nth-child(even) {
+    background-color: shade(@bg_color, 0.95);
+}
+
+list row:nth-child(even):hover {
+    background-color: @bg_color;
 }
 /**********************************************/
 
