@@ -33,7 +33,7 @@ can't be used for them anymore.
 ### gtk-3.20
 
   - theme for GTK+ 3.20 through 3.24.x
-  - based on gtk-3.0, but highly extended
+  - based on gtk-3.8, but highly extended
 
 ### gtk-4.0
 
